@@ -633,18 +633,21 @@
        ============================================================ */
     var W = 185;                     /* vessel weight tonnes */
     var lengthM = 24.5;              /* vessel length metres */
-    var aRatio = 0.42;               /* COG at 42% from main lug */
+    var cogFromMain = 0.38;          /* COG at 38% from main lug (closer to main crane) */
     var thetaRad = rad(vesselRot);
 
     /* Sling angles for tension calculation */
     var mainSlingAngleDeg = 78;      /* main sling nearly vertical (78° from horizontal) */
     var tailSlingAngleDeg = 72;      /* tail sling more inclined */
 
-    /* Load fractions (vertical component) */
+    /* Load fractions from moment balance:
+       Taking moments about MAIN lug: tail_load * L * cos(theta) = W * d_cog * cos(theta)
+       → tail_load = W * d_cog/L (when horizontal)
+       As theta → 90°, tail load approaches zero (vessel becomes vertical, main takes all) */
     var tailFraction, mainFraction;
     if (progress < 0.90) {
       /* Both slings active during upending */
-      tailFraction = (1 - aRatio) * Math.cos(thetaRad);
+      tailFraction = cogFromMain * Math.cos(thetaRad);
       mainFraction = 1 - tailFraction;
     } else {
       /* Tail released — main crane holds full vertical load */

@@ -1705,8 +1705,13 @@ ul, ol { list-style: none; }
   padding: 4px 8px;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
-.crane-label--left { left: 12%; top: 20%; }
-.crane-label--right { right: 12%; top: 20%; }
+.crane-label--left { left: 8%; top: 18%; }
+.crane-label--right { left: 42%; top: 18%; }
+@media (max-width: 900px) {
+  .crane-label { font-size: 8px; padding: 3px 6px; }
+  .crane-label--left { left: 4%; top: 6%; }
+  .crane-label--right { right: 4%; left: auto; top: 6%; }
+}
 
 /* Ensure operation stage can host absolute HUD */
 #operationStage {
