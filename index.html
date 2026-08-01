@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0a0a0a" />
+<title>JMR Lifting Solutions — Engineered Heavy Lift & Transport</title>
+<meta name="description" content="Engineering-led heavy lifting and transport for refineries, power, petrochemical, and industrial infrastructure. Precision. Safety. Scale." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="css/style.css" />
+<link rel="icon" type="image/svg+xml" href="assets/svg/favicon.svg" />
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+<!-- Progress bar at very top -->
+<div class="scroll-progress"><div class="scroll-progress__bar" id="scrollProgress"></div></div>
+
+<!-- Navigation -->
+<nav class="nav">
+  <a href="#top" class="nav__logo" aria-label="JMR Lifting Solutions">
+    <svg width="38" height="38" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+      <path d="M4 32 L14 8 L20 22 L26 8 L36 32 M4 32 L36 32" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="20" cy="32" r="2.5" fill="currentColor"/>
+    </svg>
+    <span class="nav__wordmark">JMR<em>Lifting</em></span>
+  </a>
+  <ul class="nav__links">
+    <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="#operation">Operation</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#fleet">Fleet</a></li>
+    <li><a href="#process">Process</a></li>
+  </ul>
+  <a href="#contact" class="nav__cta">Request a Lift Study</a>
+  <button class="nav__menu-btn" aria-label="Open menu" id="menuBtn">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ========================================================== -->
+<!-- 1. HERO — Cinematic full-bleed -->
+<!-- ========================================================== -->
+<section class="hero" id="top">
+  <div class="hero__bg">
+    <img src="assets/images/jmr_hero.png" alt="Tandem heavy lift operation at refinery" class="hero__img" />
+    <div class="hero__gradient"></div>
+    <div class="hero__grain"></div>
+  </div>
+
+  <div class="hero__label">
+    <span class="dot"></span>
+    <span class="tag">01 — Engineered Heavy Lift</span>
+  </div>
+
+  <div class="hero__content">
+    <h1 class="hero__title">
+      <span class="line">Lift beyond</span>
+      <span class="line line--italic"><em>the possible.</em></span>
+    </h1>
+    <p class="hero__lead">
+      Engineering-led heavy lifting and transport for refineries,
+      power plants, and critical industrial infrastructure —
+      where precision is not optional.
+    </p>
+    <div class="hero__actions">
+      <a href="#contact" class="btn btn--primary">
+        <span>Request a lift study</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5"/></svg>
+      </a>
+      <a href="#operation" class="btn btn--ghost">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="6.25" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 4.5L9.5 7L5.5 9.5V4.5Z" fill="currentColor"/></svg>
+        <span>Watch the operation</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero__stats">
+    <div class="hero__stat"><div class="hero__stat-num">2,400<span>t</span></div><div class="hero__stat-label">Max tandem lift capacity</div></div>
+    <div class="hero__stat"><div class="hero__stat-num">340<span>+</span></div><div class="hero__stat-label">Critical lifts completed</div></div>
+    <div class="hero__stat"><div class="hero__stat-num">0<span></span></div><div class="hero__stat-label">Recordable incidents · 4 yrs</div></div>
+    <div class="hero__stat"><div class="hero__stat-num">24<span>hr</span></div><div class="hero__stat-label">Global response window</div></div>
+  </div>
+
+  <div class="hero__scroll">
+    <span>SCROLL</span>
+    <svg width="1" height="40" viewBox="0 0 1 40"><line x1="0.5" y1="0" x2="0.5" y2="40" stroke="currentColor" stroke-dasharray="3 3"/></svg>
+  </div>
+</section>
+
+<!-- ========================================================== -->
+<!-- 2. INTRO — Statement of intent -->
+<!-- ========================================================== -->
+<section class="intro">
+  <div class="intro__inner">
+    <div class="intro__meta">
+      <span class="dot"></span>
+      <span class="tag">02 — What we do</span>
+    </div>
+    <h2 class="intro__title">
+      When a component weighs
+      <span class="intro__accent">1,800 tonnes</span>
+      and cannot fail —
+      we are the team that engineers the moment.
+    </h2>
+    <div class="intro__grid">
+      <div>
+        <p class="intro__body">
+          JMR Lifting Solutions is a specialist heavy-lift and engineered
+          transport contractor. We plan, engineer, and execute the world's
+          most complex lifts — refinery reactor changeouts, offshore module
+          installations, tandem upending of pressure vessels, and turnkey
+          transport of oversized industrial components.
+        </p>
+      </div>
+      <div>
+        <p class="intro__body intro__body--muted">
+          Every project begins with engineering, not equipment. Load paths,
+          ground bearing pressures, wind envelopes, and rigging geometry are
+          resolved in our engineering office before a single crane ever
+          rolls onto site.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================== -->
+<!-- 3. CAPABILITIES GRID -->
+<!-- ========================================================== -->
+<section class="capabilities" id="capabilities">
+  <div class="capabilities__header">
+    <div class="capabilities__meta">
+      <span class="dot"></span>
+      <span class="tag">03 — Capabilities</span>
+    </div>
+    <h2 class="capabilities__title">Four disciplines. <em>One standard.</em></h2>
+  </div>
+
+  <div class="capabilities__grid">
+    <article class="cap-card">
+      <div class="cap-card__num">01</div>
+      <h3 class="cap-card__title">Tandem &amp; Multi-crane Upending</h3>
+      <p class="cap-card__body">Coordinated dual-crane vertical erection of pressure vessels, columns, and reactors up to 1,800 tonnes. Fully engineered load path from horizontal to vertical.</p>
+      <ul class="cap-card__list">
+        <li>Crawler + mobile tandem lifts</li>
+        <li>Trunnion &amp; tailing rigging design</li>
+        <li>Real-time load monitoring</li>
+      </ul>
+    </article>
+
+    <article class="cap-card">
+      <div class="cap-card__num">02</div>
+      <h3 class="cap-card__title">Engineered Heavy Transport</h3>
+      <p class="cap-card__body">SPMT-based transport of oversized loads through refineries, ports, and constrained sites. Route surveys, ground preparation, and clearance engineering included.</p>
+      <ul class="cap-card__list">
+        <li>Self-propelled modular transporters</li>
+        <li>Route &amp; bridge load analysis</li>
+        <li>Ro-Ro and quayside operations</li>
+      </ul>
+    </article>
+
+    <article class="cap-card">
+      <div class="cap-card__num">03</div>
+      <h3 class="cap-card__title">Engineered Rigging Design</h3>
+      <p class="cap-card__body">In-house rigging engineering — from lift plans and pad-eye design to spreader beams and custom lifting frames. FEA-verified, insurer-accepted, code-compliant.</p>
+      <ul class="cap-card__list">
+        <li>ASME B30 &amp; BS 7121 compliant</li>
+        <li>Custom spreader &amp; lifting frames</li>
+        <li>3D lift simulation &amp; clash detection</li>
+      </ul>
+    </article>
+
+    <article class="cap-card">
+      <div class="cap-card__num">04</div>
+      <h3 class="cap-card__title">Site Assessment &amp; Method Statements</h3>
+      <p class="cap-card__body">Pre-project assessments, ground bearing studies, and method statements accepted by tier-1 EPC contractors and international insurers.</p>
+      <ul class="cap-card__list">
+        <li>Ground bearing &amp; crane pad design</li>
+        <li>Method statements &amp; HIRA</li>
+        <li>Insurer &amp; MWS liaison</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- ========================================================== -->
+<!-- 4. THE OPERATION — Existing scroll animation, refined -->
+<!-- ========================================================== -->
+<section class="operation" id="operation">
+  <div class="operation__intro">
+    <div class="operation__meta">
+      <span class="dot"></span>
+      <span class="tag">04 — The Operation</span>
+    </div>
+    <h2 class="operation__title">
+      A vessel upending, <em>step by step.</em>
+    </h2>
+    <p class="operation__body">
+      Scroll through the animation to see how a tandem lift transforms a
+      horizontal pressure vessel into its final vertical position — hooks
+      descend, slings tension, and the load rotates around a fixed
+      trunnion.
+    </p>
+  </div>
+
+  <div class="operation__stage" id="operationStage">
+    <svg id="scene" viewBox="0 0 1600 1200" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+      <g id="ground-group"></g>
+      <g id="crawler-track"></g>
+      <g id="crawler-body"></g>
+      <g id="crawler-boom"></g>
+      <line id="crawler-wire-line" stroke="#e0e0e0" stroke-width="1.4" x1="0" y1="0" x2="0" y2="0"/>
+      <g id="crawler-hook" transform="translate(0,0)"></g>
+      <g id="mobile-body"></g>
+      <g id="mobile-boom"></g>
+      <line id="mobile-wire-line" stroke="#e0e0e0" stroke-width="1.4" x1="0" y1="0" x2="0" y2="0"/>
+      <g id="mobile-hook" transform="translate(0,0)"></g>
+      <line id="main-sling" stroke="#c0c0c0" stroke-width="1.2" x1="0" y1="0" x2="0" y2="0"/>
+      <line id="tail-sling" stroke="#c0c0c0" stroke-width="1.2" x1="0" y1="0" x2="0" y2="0"/>
+      <g id="vessel-group" transform="translate(720,1020)"><g id="pressure-vessel"></g></g>
+      <g id="annotations"></g>
+    </svg>
+
+    <div class="operation__hud">
+      <div class="operation__hud-row"><span class="operation__hud-label">SEQUENCE</span><span class="operation__hud-val" id="phaseName">READY</span></div>
+      <div class="operation__hud-row"><span class="operation__hud-label">ROTATION</span><span class="operation__hud-val" id="progressDegree">0°</span></div>
+      <div class="operation__hud-bar"><div class="operation__hud-fill" id="progressFill"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================== -->
+<!-- 5. SIGNATURE PROJECTS -->
+<!-- ========================================================== -->
+<section class="projects" id="projects">
+  <div class="projects__header">
+    <div class="projects__meta">
+      <span class="dot"></span>
+      <span class="tag">05 — Signature Projects</span>
+    </div>
+    <h2 class="projects__title">Selected work.</h2>
+  </div>
+
+  <div class="project" data-project="1">
+    <div class="project__img">
+      <img src="assets/images/jmr_night.png" alt="Refinery night operation" />
+    </div>
+    <div class="project__content">
+      <div class="project__num">01 / 04</div>
+      <h3 class="project__title">Reactor Changeout · Rotterdam Refinery</h3>
+      <p class="project__meta">1,240 t · Tandem crawler + LTM · 96 hr shutdown window</p>
+      <p class="project__body">
+        Coordinated removal and installation of a fluid catalytic cracking
+        reactor within a live refinery corridor. Engineered around a
+        96-hour shutdown window. Zero deviations, zero incidents,
+        early handover.
+      </p>
+      <div class="project__stats">
+        <div><div class="project__stat-num">1,240<span>t</span></div><div class="project__stat-label">Lift weight</div></div>
+        <div><div class="project__stat-num">72<span>m</span></div><div class="project__stat-label">Final elevation</div></div>
+        <div><div class="project__stat-num">96<span>hr</span></div><div class="project__stat-label">Shutdown window</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project project--reverse" data-project="2">
+    <div class="project__img">
+      <img src="assets/images/jmr_vessel_lift.png" alt="Pressure vessel vertical erection" />
+    </div>
+    <div class="project__content">
+      <div class="project__num">02 / 04</div>
+      <h3 class="project__title">Petrochemical Vessel Upending · Jamnagar</h3>
+      <p class="project__meta">1,820 t · Tandem lift · 78 m final elevation</p>
+      <p class="project__body">
+        Upending and final placement of a hydrocracker feed pre-heater
+        vessel from horizontal delivery position to vertical foundation.
+        Engineered tailing lift with continuous load monitoring.
+      </p>
+      <div class="project__stats">
+        <div><div class="project__stat-num">1,820<span>t</span></div><div class="project__stat-label">Lift weight</div></div>
+        <div><div class="project__stat-num">78<span>m</span></div><div class="project__stat-label">Final elevation</div></div>
+        <div><div class="project__stat-num">14<span>hr</span></div><div class="project__stat-label">Rotation time</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project" data-project="3">
+    <div class="project__img">
+      <img src="assets/images/jmr_refinery.png" alt="Offshore module installation" />
+    </div>
+    <div class="project__content">
+      <div class="project__num">03 / 04</div>
+      <h3 class="project__title">LNG Module Installation · Qatar North Field</h3>
+      <p class="project__meta">2,400 t · Quad-crane synchronised · Offshore load-in</p>
+      <p class="project__body">
+        Synchronised four-crane installation of pre-assembled LNG process
+        modules onto foundations at a live LNG train. Ground bearing
+        pressures engineered to within 25 kPa tolerance.
+      </p>
+      <div class="project__stats">
+        <div><div class="project__stat-num">2,400<span>t</span></div><div class="project__stat-label">Combined lift</div></div>
+        <div><div class="project__stat-num">4<span>×</span></div><div class="project__stat-label">Cranes synced</div></div>
+        <div><div class="project__stat-num">25<span>kPa</span></div><div class="project__stat-label">GBP tolerance</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project project--reverse" data-project="4">
+    <div class="project__img">
+      <img src="assets/images/jmr_engineers.png" alt="Rigging engineers on site" />
+    </div>
+    <div class="project__content">
+      <div class="project__num">04 / 04</div>
+      <h3 class="project__title">Wind Turbine Nacelle Programme · North Sea</h3>
+      <p class="project__meta">420 t × 34 units · 156 m hub height</p>
+      <p class="project__body">
+        Engineered lift program for 34 offshore wind turbine nacelles.
+        Weather-window planning, custom lifting yokes, and on-site
+        rigging supervision for the full generator installation cycle.
+      </p>
+      <div class="project__stats">
+        <div><div class="project__stat-num">34<span></span></div><div class="project__stat-label">Nacelles</div></div>
+        <div><div class="project__stat-num">420<span>t</span></div><div class="project__stat-label">Per unit</div></div>
+        <div><div class="project__stat-num">156<span>m</span></div><div class="project__stat-label">Hub height</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================== -->
+<!-- 6. THE PROCESS -->
+<!-- ========================================================== -->
+<section class="process" id="process">
+  <div class="process__header">
+    <div class="process__meta">
+      <span class="dot"></span>
+      <span class="tag">06 — How We Work</span>
+    </div>
+    <h2 class="process__title">
+      Four phases. <em>No surprises.</em>
+    </h2>
+  </div>
+
+  <div class="process__timeline">
+    <div class="process__step">
+      <div class="process__num">01</div>
+      <div class="process__body">
+        <h3 class="process__step-title">Study</h3>
+        <p class="process__desc">Site walk, load path modelling, ground bearing analysis, and initial rigging concept. Delivered in 5 working days.</p>
+      </div>
+    </div>
+    <div class="process__step">
+      <div class="process__num">02</div>
+      <div class="process__body">
+        <h3 class="process__step-title">Engineer</h3>
+        <p class="process__desc">Full method statement, FEA-verified rigging design, crane selection, HIRA, and insurer submission. Peer-reviewed, insurer-accepted.</p>
+      </div>
+    </div>
+    <div class="process__step">
+      <div class="process__num">03</div>
+      <div class="process__body">
+        <h3 class="process__step-title">Execute</h3>
+        <p class="process__desc">On-site rigging supervision, live load monitoring, and continuous engineering oversight through every phase of the operation.</p>
+      </div>
+    </div>
+    <div class="process__step">
+      <div class="process__num">04</div>
+      <div class="process__body">
+        <h3 class="process__step-title">Deliver</h3>
+        <p class="process__desc">Load released, post-lift inspection, and full as-executed engineering pack — signed, sealed, archived. Zero-defect handover.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================== -->
+<!-- 7. FLEET -->
+<!-- ========================================================== -->
+<section class="fleet" id="fleet">
+  <div class="fleet__header">
+    <div class="fleet__meta">
+      <span class="dot"></span>
+      <span class="tag">07 — Fleet</span>
+    </div>
+    <h2 class="fleet__title">
+      Purpose-built equipment. <em>Precisely deployed.</em>
+    </h2>
+  </div>
+
+  <div class="fleet__grid">
+    <article class="fleet-card">
+      <div class="fleet-card__img"><img src="assets/images/jmr_crawler.png" alt="Crawler crane" /></div>
+      <div class="fleet-card__body">
+        <div class="fleet-card__tag">Crawler Crane</div>
+        <h3 class="fleet-card__title">Manitowoc MLC650 &amp; equivalents</h3>
+        <dl class="fleet-card__specs">
+          <div><dt>Max capacity</dt><dd>650 t</dd></div>
+          <div><dt>Max boom</dt><dd>172 m lattice</dd></div>
+          <div><dt>Slew radius</dt><dd>360°</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <article class="fleet-card">
+      <div class="fleet-card__img"><img src="assets/images/jmr_mobile.png" alt="Mobile telescopic crane" /></div>
+      <div class="fleet-card__body">
+        <div class="fleet-card__tag">All-Terrain Mobile</div>
+        <h3 class="fleet-card__title">Liebherr LTM 1750-9.1 class</h3>
+        <dl class="fleet-card__specs">
+          <div><dt>Max capacity</dt><dd>750 t</dd></div>
+          <div><dt>Max boom</dt><dd>52 m telescopic</dd></div>
+          <div><dt>Axles</dt><dd>9-axle carrier</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <article class="fleet-card">
+      <div class="fleet-card__img"><img src="assets/images/jmr_rigging.png" alt="Custom rigging equipment" /></div>
+      <div class="fleet-card__body">
+        <div class="fleet-card__tag">Engineered Rigging</div>
+        <h3 class="fleet-card__title">Custom Spreader &amp; Lifting Frames</h3>
+        <dl class="fleet-card__specs">
+          <div><dt>Design</dt><dd>FEA-verified</dd></div>
+          <div><dt>Compliance</dt><dd>ASME B30, BS 7121</dd></div>
+          <div><dt>Test</dt><dd>Proof-load certified</dd></div>
+        </dl>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ========================================================== -->
+<!-- 8. STATS BAND -->
+<!-- ========================================================== -->
+<section class="stats-band">
+  <div class="stats-band__inner">
+    <div class="stats-band__meta">
+      <span class="dot"></span>
+      <span class="tag">08 — By The Numbers</span>
+    </div>
+    <div class="stats-band__grid">
+      <div class="big-stat">
+        <div class="big-stat__num" data-target="14500">0</div>
+        <div class="big-stat__unit">t</div>
+        <div class="big-stat__label">Combined fleet capacity</div>
+      </div>
+      <div class="big-stat">
+        <div class="big-stat__num" data-target="340">0</div>
+        <div class="big-stat__unit">+</div>
+        <div class="big-stat__label">Critical lifts delivered</div>
+      </div>
+      <div class="big-stat">
+        <div class="big-stat__num" data-target="27">0</div>
+        <div class="big-stat__unit"></div>
+        <div class="big-stat__label">Countries operated in</div>
+      </div>
+      <div class="big-stat">
+        <div class="big-stat__num" data-target="0">0</div>
+        <div class="big-stat__unit"></div>
+        <div class="big-stat__label">Recordable incidents · last 4 yrs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================== -->
+<!-- 9. CONTACT -->
+<!-- ========================================================== -->
+<section class="contact" id="contact">
+  <div class="contact__inner">
+    <div class="contact__meta">
+      <span class="dot"></span>
+      <span class="tag">09 — Start a Project</span>
+    </div>
+    <h2 class="contact__title">
+      Send us the load.<br />
+      <em>We'll return an engineered lift plan.</em>
+    </h2>
+    <p class="contact__body">
+      Attach your GA drawing, vessel weight, foundation coordinates, and target date.
+      You'll receive a preliminary lift study within 5 working days —
+      free of charge, no obligation.
+    </p>
+
+    <form class="contact__form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Submitted · we will be in touch';">
+      <div class="contact__row">
+        <div class="field"><label for="name">Full name</label><input id="name" type="text" required /></div>
+        <div class="field"><label for="company">Company</label><input id="company" type="text" required /></div>
+      </div>
+      <div class="contact__row">
+        <div class="field"><label for="email">Work email</label><input id="email" type="email" required /></div>
+        <div class="field"><label for="phone">Phone</label><input id="phone" type="tel" /></div>
+      </div>
+      <div class="field"><label for="brief">Project brief</label><textarea id="brief" rows="4" placeholder="Load weight, dimensions, site location, target dates, constraints..."></textarea></div>
+      <button type="submit" class="btn btn--primary btn--wide">
+        <span>Request lift study</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5"/></svg>
+      </button>
+    </form>
+
+    <div class="contact__direct">
+      <div class="contact__direct-item">
+        <div class="contact__direct-label">Engineering office</div>
+        <div class="contact__direct-val">Rotterdam · The Netherlands</div>
+      </div>
+      <div class="contact__direct-item">
+        <div class="contact__direct-label">Direct line</div>
+        <div class="contact__direct-val">+31 10 000 0000</div>
+      </div>
+      <div class="contact__direct-item">
+        <div class="contact__direct-label">Response window</div>
+        <div class="contact__direct-val">Within 24 hours · global</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================== -->
+<!-- FOOTER -->
+<!-- ========================================================== -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <svg width="32" height="32" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <path d="M4 32 L14 8 L20 22 L26 8 L36 32 M4 32 L36 32" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="20" cy="32" r="2.5" fill="currentColor"/>
+      </svg>
+      <span>JMR<em>Lifting</em></span>
+    </div>
+    <div class="footer__cols">
+      <div>
+        <div class="footer__col-title">Capabilities</div>
+        <a href="#capabilities">Tandem Upending</a>
+        <a href="#capabilities">Heavy Transport</a>
+        <a href="#capabilities">Rigging Design</a>
+        <a href="#capabilities">Site Assessment</a>
+      </div>
+      <div>
+        <div class="footer__col-title">Company</div>
+        <a href="#projects">Projects</a>
+        <a href="#process">Process</a>
+        <a href="#fleet">Fleet</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div>
+        <div class="footer__col-title">Compliance</div>
+        <span>ISO 9001 · 14001 · 45001</span>
+        <span>ASME B30 · BS 7121</span>
+        <span>SCC Petrochemical</span>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 JMR Lifting Solutions. Engineered heavy lift &amp; transport.</span>
+      <span class="footer__made">Rotterdam · Global</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/scene.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
