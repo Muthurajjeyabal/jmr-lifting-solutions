@@ -39,11 +39,11 @@
     </svg>
   </a>
   <ul class="nav__links">
-    <li><a href="#capabilities">Capabilities</a></li>
-    <li><a href="#operation">Operation</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#fleet">Fleet</a></li>
-    <li><a href="#process">Process</a></li>
+    <li><a href="index.html" class="nav__link" aria-current="page">Home</a></li>
+    <li><a href="services.html" class="nav__link">Services</a></li>
+    <li><a href="tools.html" class="nav__link">Tools</a></li>
+    <li><a href="ai-lift-plan.html" class="nav__link">AI Lift Plan</a></li>
+    <li><a href="company.html" class="nav__link">Company</a></li>
   </ul>
   <a href="#contact" class="nav__cta">Request a Lift Study</a>
   <button class="nav__menu-btn" aria-label="Open menu" id="menuBtn">
@@ -240,6 +240,69 @@
       <div class="operation__hud-row"><span class="operation__hud-label">ROTATION</span><span class="operation__hud-val" id="progressDegree">0°</span></div>
       <div class="operation__hud-bar"><div class="operation__hud-fill" id="progressFill"></div></div>
     </div>
+
+    <!-- Engineering HUD — live load distribution -->
+    <div class="hud" role="complementary" aria-label="Engineering load distribution">
+      <div class="hud__title">Load Distribution <span class="hud__dot" aria-hidden="true"></span></div>
+
+      <div class="hud__vessel">
+        <span class="hud__vessel-label">Vessel<br/>rotation</span>
+        <span class="hud__vessel-val" id="hudDegree">0<sup>°</sup></span>
+      </div>
+
+      <div class="hud__row"><span class="hud__row-label">Vessel Wt</span><span class="hud__row-val" id="hudVesselWeight">185 t</span></div>
+      <div class="hud__row"><span class="hud__row-label">Wind</span><span class="hud__row-val" id="hudWind">8.2 m/s</span></div>
+      <div class="hud__row"><span class="hud__row-label">DAF</span><span class="hud__row-val" id="hudDaf">1.10</span></div>
+
+      <div class="hud__bars">
+        <div class="hud__bar">
+          <span class="hud__bar-label">Main</span>
+          <div class="hud__bar-track"><div class="hud__bar-fill" id="hudMainBar" style="width:58%"></div></div>
+          <span class="hud__bar-val" id="hudMainPct">58%</span>
+        </div>
+        <div class="hud__row">
+          <span class="hud__row-label">Load</span><span class="hud__row-val hud__row-val--accent" id="hudMainLoad">107.3 t</span>
+        </div>
+        <div class="hud__row">
+          <span class="hud__row-label">Sling T</span><span class="hud__row-val" id="hudMainTension">109.7 t</span>
+        </div>
+        <div class="hud__row">
+          <span class="hud__row-label">Boom</span><span class="hud__row-val" id="hudMainBoom">78°</span>
+        </div>
+        <div class="hud__bar" style="margin-top:4px">
+          <span class="hud__bar-label">Util</span>
+          <div class="hud__bar-track"><div class="hud__bar-fill" id="hudMainUtilBar" style="width:27%"></div></div>
+          <span class="hud__bar-val" id="hudMainUtil">27%</span>
+        </div>
+      </div>
+
+      <div class="hud__bars">
+        <div class="hud__bar">
+          <span class="hud__bar-label">Tail</span>
+          <div class="hud__bar-track"><div class="hud__bar-fill" id="hudTailBar" style="width:42%"></div></div>
+          <span class="hud__bar-val" id="hudTailPct">42%</span>
+        </div>
+        <div class="hud__row">
+          <span class="hud__row-label">Load</span><span class="hud__row-val hud__row-val--accent" id="hudTailLoad">77.7 t</span>
+        </div>
+        <div class="hud__row">
+          <span class="hud__row-label">Sling T</span><span class="hud__row-val" id="hudTailTension">81.7 t</span>
+        </div>
+        <div class="hud__row">
+          <span class="hud__row-label">Boom</span><span class="hud__row-val" id="hudTailBoom">62°</span>
+        </div>
+        <div class="hud__bar" style="margin-top:4px">
+          <span class="hud__bar-label">Util</span>
+          <div class="hud__bar-track"><div class="hud__bar-fill" id="hudTailUtilBar" style="width:26%"></div></div>
+          <span class="hud__bar-val" id="hudTailUtil">26%</span>
+        </div>
+      </div>
+
+      <div class="hud__foot">Formula: W · d<sub>cog</sub> / L · cos θ · DAF · Sling angle</div>
+    </div>
+
+    <div class="crane-label crane-label--left">CRAWLER · CC 8800-1 · 400 t</div>
+    <div class="crane-label crane-label--right">MOBILE · LTM 1500 · 300 t</div>
   </div>
 </section>
 
@@ -514,15 +577,19 @@
 
     <div class="contact__direct">
       <div class="contact__direct-item">
-        <div class="contact__direct-label">Engineering office</div>
-        <div class="contact__direct-val">Rotterdam · The Netherlands</div>
+        <div class="contact__direct-label">Email</div>
+        <div class="contact__direct-val"><a href="mailto:muthurajjeyabal@gmail.com" style="color:inherit">muthurajjeyabal@gmail.com</a></div>
       </div>
       <div class="contact__direct-item">
-        <div class="contact__direct-label">Direct line</div>
-        <div class="contact__direct-val">+31 10 000 0000</div>
+        <div class="contact__direct-label">Phone</div>
+        <div class="contact__direct-val"><a href="tel:+919597899960" style="color:inherit">+91 9597 899 960</a></div>
       </div>
       <div class="contact__direct-item">
-        <div class="contact__direct-label">Response window</div>
+        <div class="contact__direct-label">WhatsApp</div>
+        <div class="contact__direct-val"><a href="https://wa.me/918111002266" style="color:inherit">+91 81110 02266</a></div>
+      </div>
+      <div class="contact__direct-item">
+        <div class="contact__direct-label">Response</div>
         <div class="contact__direct-val">Within 24 hours · global</div>
       </div>
     </div>
@@ -546,29 +613,29 @@
     </div>
     <div class="footer__cols">
       <div>
-        <div class="footer__col-title">Capabilities</div>
-        <a href="#capabilities">Tandem Upending</a>
-        <a href="#capabilities">Heavy Transport</a>
-        <a href="#capabilities">Rigging Design</a>
-        <a href="#capabilities">Site Assessment</a>
+        <div class="footer__col-title">Services</div>
+        <a href="services.html">Lift Planning</a>
+        <a href="services.html">Method Statements</a>
+        <a href="services.html">Risk Assessment</a>
+        <a href="services.html">Engineering Calculations</a>
       </div>
       <div>
-        <div class="footer__col-title">Company</div>
-        <a href="#projects">Projects</a>
-        <a href="#process">Process</a>
-        <a href="#fleet">Fleet</a>
-        <a href="#contact">Contact</a>
+        <div class="footer__col-title">Tools</div>
+        <a href="tools.html">Digital Calculators</a>
+        <a href="ai-lift-plan.html">AI Lift Plan Generator</a>
+        <a href="tools.html">Document Review</a>
+        <a href="company.html">Company</a>
       </div>
       <div>
-        <div class="footer__col-title">Compliance</div>
-        <span>ISO 9001 · 14001 · 45001</span>
-        <span>ASME B30 · BS 7121</span>
-        <span>SCC Petrochemical</span>
+        <div class="footer__col-title">Contact</div>
+        <a href="mailto:muthurajjeyabal@gmail.com">muthurajjeyabal@gmail.com</a>
+        <a href="tel:+919597899960">+91 9597 899 960</a>
+        <a href="https://wa.me/918111002266">WhatsApp +91 81110 02266</a>
       </div>
     </div>
     <div class="footer__bottom">
-      <span>© 2026 JMR Lifting Solutions · Engineering the impossible lift.</span>
-      <span class="footer__made">Rotterdam · Global</span>
+      <span>© 2026 JMR Lifting Solutions &amp; Engineering · Engineering the impossible lift.</span>
+      <span class="footer__made">Independent lifting engineering consultancy</span>
     </div>
   </div>
 </footer>

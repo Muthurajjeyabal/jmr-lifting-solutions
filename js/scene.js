@@ -619,6 +619,87 @@
     var degEl = document.getElementById('progressDegree');
     if (fill) fill.style.width = progressPct + '%';
     if (degEl) degEl.textContent = degreeVal + '\u00B0';
+
+    /* ============================================================
+       ENGINEERING HUD — Load distribution per rotation angle
+       Real physics: dual-crane upending of horizontal vessel
+       W = total vessel weight (t)
+       theta = vessel rotation from horizontal (deg)
+       COG at distance a from main-lug end along vessel axis
+       L = trunnion (main to tail lug) distance
+       Vertical component of tail hook load = W*(a/L)*cos(theta)
+       Vertical component of main hook load = W - tail_vertical
+       When theta = 90 (vertical), tail sling releases so main = W, tail = 0
+       ============================================================ */
+    var W = 185;                     /* vessel weight tonnes */
+    var lengthM = 24.5;              /* vessel length metres */
+    var aRatio = 0.42;               /* COG at 42% from main lug */
+    var thetaRad = rad(vesselRot);
+
+    /* Sling angles for tension calculation */
+    var mainSlingAngleDeg = 78;      /* main sling nearly vertical (78° from horizontal) */
+    var tailSlingAngleDeg = 72;      /* tail sling more inclined */
+
+    /* Load fractions (vertical component) */
+    var tailFraction, mainFraction;
+    if (progress < 0.90) {
+      /* Both slings active during upending */
+      tailFraction = (1 - aRatio) * Math.cos(thetaRad);
+      mainFraction = 1 - tailFraction;
+    } else {
+      /* Tail released — main crane holds full vertical load */
+      mainFraction = 1;
+      tailFraction = 0;
+    }
+
+    var mainLoadT = W * mainFraction;
+    var tailLoadT = W * tailFraction;
+
+    /* Sling tension = vertical load / sin(sling angle from horizontal) */
+    var mainTensionT = mainLoadT / Math.sin(rad(mainSlingAngleDeg));
+    var tailTensionT = tailFraction > 0.001 ? tailLoadT / Math.sin(rad(tailSlingAngleDeg)) : 0;
+
+    /* Boom angles — approximate from geometry */
+    var mainBoomAngle = 78;          /* crawler boom near vertical */
+    var tailBoomAngle = 62 + (vesselRot / 90) * 12;   /* mobile boom sweeps up 62→74° */
+
+    /* Crane utilization (against nominal SWL at current radius) */
+    var mainSWL = 400;               /* crawler SWL at this radius (t) */
+    var tailSWL = 300;               /* mobile SWL at this radius (t) */
+    var mainUtil = (mainLoadT / mainSWL) * 100;
+    var tailUtil = tailFraction > 0.001 ? (tailLoadT / tailSWL) * 100 : 0;
+
+    /* Wind load — assume 8 m/s constant, dynamic amplification with angle */
+    var windSpeed = 8.2;             /* m/s */
+    var daf = 1.10 + (vesselRot / 90) * 0.05;   /* dynamic amplification 1.10 → 1.15 */
+
+    /* Push to HUD elements */
+    function setHud(id, val) {
+      var el = document.getElementById(id);
+      if (el) el.textContent = val;
+    }
+    function setBar(id, pct) {
+      var el = document.getElementById(id);
+      if (el) el.style.width = Math.min(100, Math.max(0, pct)) + '%';
+    }
+    setHud('hudDegree', degreeVal);
+    setHud('hudVesselWeight', W.toFixed(0) + ' t');
+    setHud('hudMainLoad', mainLoadT.toFixed(1) + ' t');
+    setHud('hudTailLoad', tailLoadT.toFixed(1) + ' t');
+    setHud('hudMainPct', (mainFraction * 100).toFixed(0) + '%');
+    setHud('hudTailPct', (tailFraction * 100).toFixed(0) + '%');
+    setHud('hudMainTension', mainTensionT.toFixed(1) + ' t');
+    setHud('hudTailTension', tailFraction > 0.001 ? tailTensionT.toFixed(1) + ' t' : '— rel.');
+    setHud('hudMainBoom', mainBoomAngle.toFixed(0) + '\u00B0');
+    setHud('hudTailBoom', tailBoomAngle.toFixed(0) + '\u00B0');
+    setHud('hudMainUtil', mainUtil.toFixed(0) + '%');
+    setHud('hudTailUtil', tailUtil.toFixed(0) + '%');
+    setHud('hudWind', windSpeed.toFixed(1) + ' m/s');
+    setHud('hudDaf', daf.toFixed(2));
+    setBar('hudMainBar', mainFraction * 100);
+    setBar('hudTailBar', tailFraction * 100);
+    setBar('hudMainUtilBar', mainUtil);
+    setBar('hudTailUtilBar', tailUtil);
   }
 
   /* ============================================================
