@@ -13,10 +13,10 @@
   --surface: #0f0f11;
   --line: rgba(255, 255, 255, 0.08);
   --line-strong: rgba(255, 255, 255, 0.18);
-  --spectral: #f0f0fa;
-  --spectral-2: rgba(240, 240, 250, 0.7);
-  --spectral-3: rgba(240, 240, 250, 0.5);
-  --spectral-4: rgba(240, 240, 250, 0.3);
+  --spectral: #ffffff;                        /* Main headings / high emphasis (pure white) */
+  --spectral-2: #ededed;                      /* Body / secondary paragraph text */
+  --spectral-3: #cccccc;                      /* Card subtitles / labels / captions */
+  --spectral-4: rgba(240, 240, 250, 0.45);    /* Faint decorative / tertiary only */
   --accent: #ff6a1a;         /* industrial orange — safety cone */
   --accent-hover: #ff7f3d;
   --accent-glow: rgba(255, 106, 26, 0.35);
@@ -1725,6 +1725,104 @@ ul, ol { list-style: none; }
   .crane-label { font-size: 8px; padding: 3px 6px; }
   .crane-label--left { left: 4%; top: 6%; }
   .crane-label--right { right: 4%; left: auto; top: 6%; }
+}
+
+/* ============================================================
+   LEEA CERTIFIED APPOINTED PERSON — Compliance Badge
+   ============================================================ */
+.leea-badge {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px 24px;
+  align-items: start;
+  padding: 28px 32px;
+  max-width: 1400px;
+  margin: 48px auto 0;
+  background: linear-gradient(135deg, rgba(255, 106, 26, 0.06) 0%, rgba(15, 15, 17, 0.9) 60%);
+  border: 1px solid rgba(255, 106, 26, 0.35);
+  border-left: 3px solid var(--accent);
+  position: relative;
+  overflow: hidden;
+}
+.leea-badge::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 0% 0%, rgba(255, 106, 26, 0.10), transparent 40%);
+  pointer-events: none;
+}
+.leea-badge__seal {
+  position: relative;
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 106, 26, 0.15) 0%, transparent 70%);
+  border: 2px solid var(--accent);
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.leea-badge__seal svg { width: 40px; height: 40px; color: var(--accent); }
+.leea-badge__seal-ring {
+  position: absolute; inset: -6px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 106, 26, 0.45);
+  animation: leeaSpin 24s linear infinite;
+}
+@keyframes leeaSpin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .leea-badge__seal-ring { animation: none; }
+}
+.leea-badge__content { position: relative; z-index: 1; }
+.leea-badge__tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.leea-badge__title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--spectral);
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+.leea-badge__body {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--spectral-2);
+  margin: 0 0 14px;
+  max-width: 62ch;
+}
+.leea-badge__standards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.leea-badge__standards li {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--spectral-3);
+  border-radius: 2px;
+}
+.leea-badge__standards li.is-accent {
+  border-color: rgba(255, 106, 26, 0.4);
+  color: var(--accent);
+}
+@media (max-width: 720px) {
+  .leea-badge { grid-template-columns: 1fr; padding: 22px 20px; gap: 14px; }
+  .leea-badge__seal { width: 60px; height: 60px; }
+  .leea-badge__seal svg { width: 32px; height: 32px; }
+  .leea-badge__title { font-size: 18px; }
+  .leea-badge__body { font-size: 13.5px; }
 }
 
 /* Ensure operation stage can host absolute HUD */

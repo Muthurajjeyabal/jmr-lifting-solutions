@@ -33,24 +33,47 @@
   }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
   revealElements.forEach(el => io.observe(el));
 
-  /* ---- Number counter animation ---- */
-  document.querySelectorAll('.big-stat__num').forEach(el => {
-    const target = parseInt(el.dataset.target || '0', 10);
-    ScrollTrigger.create({
-      trigger: el,
-      start: 'top 85%',
-      onEnter: () => {
-        gsap.to({ v: 0 }, {
-          v: target,
-          duration: 2.2,
-          ease: 'power2.out',
-          onUpdate: function () {
-            el.textContent = Math.round(this.targets()[0].v).toLocaleString();
-          }
-        });
+  /* ---- Number counter animation (vanilla, IntersectionObserver) ----
+     Works for both `.counter` (hero) and `.big-stat__num` (section 08).
+     data-target: end value (integer)
+     data-pad:    optional. Pad with leading zeros to N digits (e.g. "2" → 08)
+     data-suffix: optional. Preserves suffix text like "hr", "+", "t"
+     Fires ONCE per element when it enters the viewport. Duration: 2s. */
+  (function initCounters() {
+    const counters = document.querySelectorAll('.counter, .big-stat__num');
+    if (!counters.length || !('IntersectionObserver' in window)) return;
+
+    const DURATION = 2000; // ms
+    const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.target || '0', 10);
+      const pad = parseInt(el.dataset.pad || '0', 10);
+      const suffix = el.dataset.suffix || '';
+      const startTime = performance.now();
+
+      function render(nowMs) {
+        const elapsed = nowMs - startTime;
+        const p = Math.min(elapsed / DURATION, 1);
+        const value = Math.round(target * easeOutCubic(p));
+        const numText = pad > 0 ? String(value).padStart(pad, '0') : value.toLocaleString();
+        el.innerHTML = numText + (suffix ? '<span>' + suffix + '</span>' : '');
+        if (p < 1) requestAnimationFrame(render);
       }
-    });
-  });
+      requestAnimationFrame(render);
+    }
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target); // fire once
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '0px 0px -40px 0px' });
+
+    counters.forEach(el => counterObserver.observe(el));
+  })();
 
   /* ---- Hero parallax on scroll ---- */
   gsap.to('.hero__img', {
