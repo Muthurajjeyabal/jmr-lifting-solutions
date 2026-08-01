@@ -1930,3 +1930,85 @@ button[data-fs-submit-btn][disabled] span::after {
   .wa-fab { width: 54px; height: 54px; right: 16px; bottom: 16px; }
   .wa-fab svg { width: 26px; height: 26px; }
 }
+
+/* ============ UPLOADCARE WIDGET (dark theme override) ============ */
+.field--upload { margin-top: 8px; }
+.field__hint {
+  display: inline;
+  font-size: 11px;
+  color: var(--spectral-3);
+  font-family: var(--font-mono);
+  text-transform: none;
+  letter-spacing: 0.02em;
+  margin-left: 6px;
+  font-weight: 400;
+}
+
+/* Uploadcare button styling */
+.uploadcare--widget__button,
+.uploadcare--widget__button_type_open {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px dashed rgba(255, 255, 255, 0.2) !important;
+  color: var(--spectral-2) !important;
+  padding: 14px 22px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 12px !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  border-radius: 4px !important;
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+.uploadcare--widget__button:hover,
+.uploadcare--widget__button_type_open:hover {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+  background: rgba(255, 106, 26, 0.06) !important;
+}
+.uploadcare--widget__text { color: var(--spectral-3) !important; font-family: var(--font-mono) !important; font-size: 11px !important; }
+.uploadcare--widget__button_type_remove {
+  background: transparent !important;
+  color: #ff9d9d !important;
+  border-color: rgba(220, 80, 80, 0.4) !important;
+}
+
+/* Dialog dark theme */
+.uploadcare--dialog { background: rgba(0,0,0,0.85) !important; }
+.uploadcare--panel { background: #17151f !important; color: var(--spectral) !important; border-radius: 6px !important; }
+.uploadcare--menu { background: #1a1820 !important; border-right: 1px solid rgba(255,255,255,0.05) !important; }
+.uploadcare--menu__item { color: var(--spectral-2) !important; }
+.uploadcare--menu__item_current { background: rgba(255, 106, 26, 0.12) !important; color: var(--accent) !important; }
+.uploadcare--tab__header { color: var(--spectral) !important; }
+.uploadcare--button_primary { background: var(--accent) !important; color: #ffffff !important; }
+.uploadcare--button { border-radius: 4px !important; font-family: var(--font-mono) !important; font-size: 12px !important; }
+.uploadcare--dragging-area { border-color: rgba(255,106,26,0.4) !important; }
+
+/* Uploaded files list */
+.field__uploaded {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+.uploaded-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-left: 2px solid var(--accent);
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.uploaded-item svg { color: var(--accent); flex-shrink: 0; }
+.uploaded-name { flex: 1; color: var(--spectral); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.uploaded-size { color: var(--spectral-3); font-size: 11px; }
+.uploaded-check { color: #6dd158; font-weight: bold; font-size: 14px; margin-left: 4px; }
+
+@media (max-width: 640px) {
+  .field__hint { display: block; margin-left: 0; margin-top: 4px; }
+  .uploadcare--widget__button { padding: 12px 16px !important; font-size: 11px !important; }
+  .uploaded-item { font-size: 11px; padding: 8px 12px; }
+}

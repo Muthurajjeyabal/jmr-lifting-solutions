@@ -609,6 +609,27 @@
         <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" data-fs-field /></div>
       </div>
       <div class="field"><label for="brief">Project brief</label><textarea id="brief" name="message" rows="4" placeholder="Load weight, dimensions, site location, target dates, constraints..." data-fs-field></textarea><span data-fs-error="message"></span></div>
+
+      <div class="field field--upload">
+        <label>Attachments <span class="field__hint">(GA drawings, specs, PDFs — optional, up to 100MB per file)</span></label>
+        <input
+          type="hidden"
+          role="uploadcare-uploader"
+          name="attachments"
+          data-public-key="3fdf9877b625442661de"
+          data-multiple="true"
+          data-multiple-max="5"
+          data-multiple-min="0"
+          data-images-only="false"
+          data-preview-step="true"
+          data-clearable="true"
+          data-tabs="file url camera"
+          data-source-list="local, url, gdrive, dropbox"
+          data-locale-translations='{"en":{"buttons":{"choose":{"files":{"one":"Attach file","other":"Attach files (GA/spec/PDF)"}}}}}'
+        />
+        <div class="field__uploaded" id="uploadedFiles" aria-live="polite"></div>
+      </div>
+
       <input type="hidden" name="_subject" value="New JMR Lifting Enquiry — Lift Study Request" />
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
       <button type="submit" class="btn btn--primary btn--wide" data-fs-submit-btn>
@@ -616,6 +637,72 @@
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5"/></svg>
       </button>
     </form>
+
+    <!-- Uploadcare widget config -->
+    <script>
+      UPLOADCARE_PUBLIC_KEY = '3fdf9877b625442661de';
+      UPLOADCARE_LOCALE = 'en';
+    </script>
+    <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js" charset="utf-8"></script>
+    <script>
+      // Track uploaded files + expand them into readable URLs for the email
+      var uploadedFileInfo = [];
+      document.addEventListener('DOMContentLoaded', function () {
+        var input = document.querySelector('[role="uploadcare-uploader"]');
+        var display = document.getElementById('uploadedFiles');
+        var form = document.getElementById('jmr-contact-form');
+        if (!input || !window.uploadcare) return;
+        var widget = uploadcare.MultipleWidget(input);
+
+        widget.onChange(function (fileList) {
+          display.innerHTML = '';
+          uploadedFileInfo = [];
+          if (!fileList) return;
+          fileList.files().forEach(function (fp) {
+            fp.done(function (info) {
+              uploadedFileInfo.push({
+                name: info.name,
+                size: info.size,
+                url: info.cdnUrl + info.name
+              });
+              var el = document.createElement('div');
+              el.className = 'uploaded-item';
+              el.setAttribute('data-uuid', info.uuid);
+              var sizeKb = info.size / 1024;
+              var sizeText = sizeKb > 1024 ? (sizeKb/1024).toFixed(1) + ' MB' : sizeKb.toFixed(0) + ' KB';
+              el.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>' +
+                '<span class="uploaded-name">' + info.name + '</span>' +
+                '<span class="uploaded-size">' + sizeText + '</span>' +
+                '<span class="uploaded-check">✓</span>';
+              display.appendChild(el);
+            });
+          });
+        });
+
+        // Inject a readable attachment summary into the form before Formspree submits
+        if (form) {
+          form.addEventListener('submit', function () {
+            // Remove any prior injected fields
+            form.querySelectorAll('input[data-attachment-line]').forEach(function(n){ n.remove(); });
+            if (uploadedFileInfo.length === 0) return;
+            uploadedFileInfo.forEach(function (f, i) {
+              var hidden = document.createElement('input');
+              hidden.type = 'hidden';
+              hidden.name = 'Attachment ' + (i + 1);
+              hidden.value = f.name + ' — ' + f.url;
+              hidden.setAttribute('data-attachment-line', 'true');
+              form.appendChild(hidden);
+            });
+            var count = document.createElement('input');
+            count.type = 'hidden';
+            count.name = 'Attachment count';
+            count.value = uploadedFileInfo.length + ' file(s) attached';
+            count.setAttribute('data-attachment-line', 'true');
+            form.appendChild(count);
+          }, true);
+        }
+      });
+    </script>
 
     <script>
       window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
