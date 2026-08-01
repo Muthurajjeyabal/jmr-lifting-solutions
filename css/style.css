@@ -1591,16 +1591,30 @@ ul, ol { list-style: none; }
   pointer-events: none;
 }
 @media (max-width: 900px) {
+  .operation__stage { overflow: visible; height: auto; padding-bottom: 0; }
+  .operation__stage svg#scene { height: 55vh; }
   .hud {
-    position: absolute;
-    left: 50%;
+    position: relative;
+    left: auto;
     right: auto;
     top: auto;
-    bottom: 20px;
-    transform: translateX(-50%);
-    width: calc(100% - 40px);
-    max-width: 400px;
+    bottom: auto;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 12px;
+    padding: 14px;
+    font-size: 11px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 16px;
   }
+  .hud__title { grid-column: 1 / -1; }
+  .hud__vessel { grid-column: 1 / -1; }
+  .hud__vessel-val { font-size: 36px; }
+  .hud__row { padding: 3px 0; }
+  .hud__bars { margin-top: 6px; }
+  .hud__foot { grid-column: 1 / -1; margin-top: 8px; }
 }
 .hud__title {
   font-size: 10px;
