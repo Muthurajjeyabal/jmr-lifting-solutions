@@ -1,0 +1,64 @@
+{
+  "name": "JMR Lifting Solutions & Engineering",
+  "short_name": "JMR Lifting",
+  "description": "Engineered lift plans, method statements, and rigging design — signed by a LEEA Certified Appointed Person. BS 7121 / LOLER / ASME B30 compliant.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "categories": ["business", "productivity", "engineering"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "assets/svg/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Request Lift Study",
+      "short_name": "Request",
+      "description": "Send a preliminary lift study request",
+      "url": "/contact.html",
+      "icons": [{"src": "assets/icons/icon-192.png", "sizes": "192x192"}]
+    },
+    {
+      "name": "AI Lift Plan",
+      "short_name": "AI Plan",
+      "description": "Generate a lift plan with AI",
+      "url": "/ai-lift-plan.html",
+      "icons": [{"src": "assets/icons/icon-192.png", "sizes": "192x192"}]
+    },
+    {
+      "name": "Free Calculators",
+      "short_name": "Tools",
+      "description": "Sling, crane utilisation, ground bearing",
+      "url": "/tools.html",
+      "icons": [{"src": "assets/icons/icon-192.png", "sizes": "192x192"}]
+    }
+  ]
+}
