@@ -8,14 +8,16 @@
 
   /* ---- Scroll progress bar ---- */
   const progressBar = document.getElementById('scrollProgress');
-  function updateProgress() {
-    const scrolled = window.scrollY;
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    const pct = max > 0 ? (scrolled / max) * 100 : 0;
-    progressBar.style.width = pct + '%';
+  if (progressBar) {
+    function updateProgress() {
+      const scrolled = window.scrollY;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? (scrolled / max) * 100 : 0;
+      progressBar.style.width = pct + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
   }
-  window.addEventListener('scroll', updateProgress, { passive: true });
-  updateProgress();
 
   /* ---- Intersection reveal for sections ---- */
   const revealElements = document.querySelectorAll(
@@ -156,13 +158,51 @@
     });
   });
 
-  /* ---- Mobile menu (basic) ---- */
+  /* ---- Mobile menu overlay ---- */
   const menuBtn = document.getElementById('menuBtn');
-  if (menuBtn) {
-    menuBtn.addEventListener('click', () => {
-      // simple toggle: scroll to capabilities as fallback
-      document.querySelector('#capabilities')?.scrollIntoView({ behavior: 'smooth' });
-    });
+  const menuNav = document.querySelector('.nav');
+  if (menuBtn && menuNav) {
+    // Build overlay dynamically from existing nav links so all pages get it
+    const overlay = document.createElement('div');
+    overlay.className = 'mobile-menu';
+    overlay.setAttribute('aria-hidden', 'true');
+    const linksList = menuNav.querySelector('.nav__links');
+    const cta = menuNav.querySelector('.nav__cta');
+    const linksHtml = linksList ? linksList.outerHTML.replace('nav__links', 'mobile-menu__links') : '';
+    const ctaHtml = cta ? `<a href="${cta.getAttribute('href')}" class="mobile-menu__cta">${cta.textContent}</a>` : '';
+    overlay.innerHTML = `
+      <div class="mobile-menu__inner">
+        <button class="mobile-menu__close" aria-label="Close menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+        ${linksHtml}
+        ${ctaHtml}
+        <div class="mobile-menu__contact">
+          <a href="mailto:contact@jmrlifting.com">contact@jmrlifting.com</a>
+          <a href="https://wa.me/918111002266" target="_blank" rel="noopener">WhatsApp us</a>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+
+    const openMenu = () => {
+      overlay.classList.add('is-open');
+      overlay.setAttribute('aria-hidden', 'false');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeMenu = () => {
+      overlay.classList.remove('is-open');
+      overlay.setAttribute('aria-hidden', 'true');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+    menuBtn.addEventListener('click', openMenu);
+    overlay.querySelector('.mobile-menu__close').addEventListener('click', closeMenu);
+    overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
   }
 
   /* ---- Cursor accent on cap-cards ---- */
