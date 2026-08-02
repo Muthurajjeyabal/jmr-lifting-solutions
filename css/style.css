@@ -2267,3 +2267,128 @@ button[data-fs-submit-btn][disabled] span::after {
 @media (min-width: 900px) {
   .mobile-menu { display: none; }
 }
+
+/* ============================================================
+   NETWORK / HOW-WE-WORK SECTION (Company page)
+   ============================================================ */
+.network-section .network-copy {
+  max-width: 780px;
+  margin: 32px 0 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.network-section .network-copy p {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(245,244,239,0.82);
+  margin: 0;
+}
+.network-section .network-copy strong {
+  color: #f5f4ef;
+  font-weight: 600;
+}
+.network-model {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+.network-card {
+  padding: 32px 28px;
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.02);
+  transition: border-color 0.3s, transform 0.35s, background 0.3s;
+}
+.network-card:hover {
+  border-color: rgba(255,106,26,0.4);
+  background: rgba(255,106,26,0.03);
+  transform: translateY(-3px);
+}
+.network-card__num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #ff6a1a;
+  margin-bottom: 20px;
+}
+.network-card__title {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #f5f4ef;
+  margin: 0 0 12px;
+}
+.network-card p {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(245,244,239,0.7);
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .network-model { grid-template-columns: 1fr; gap: 16px; }
+  .network-section .network-copy p { font-size: 16px; }
+}
+
+/* ============================================================
+   STATUS BADGES + BETA CALLOUT (AI Lift Plan page)
+   ============================================================ */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  margin-left: 12px;
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+.status-badge--beta {
+  background: rgba(255,106,26,0.15);
+  color: #ff8134;
+  border: 1px solid rgba(255,106,26,0.35);
+}
+.beta-callout {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  max-width: 720px;
+  margin-top: 32px;
+  padding: 20px 24px;
+  border: 1px solid rgba(255,106,26,0.25);
+  border-left: 3px solid #ff6a1a;
+  border-radius: 10px;
+  background: rgba(255,106,26,0.04);
+}
+.beta-callout__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff6a1a;
+  flex-shrink: 0;
+  margin-top: 8px;
+  box-shadow: 0 0 0 4px rgba(255,106,26,0.15);
+  animation: pulse-orange 2s ease-in-out infinite;
+}
+.beta-callout > div:last-child {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(245,244,239,0.85);
+}
+.beta-callout strong {
+  color: #ff8134;
+  font-weight: 600;
+}
+@keyframes pulse-orange {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(255,106,26,0.15); }
+  50% { box-shadow: 0 0 0 8px rgba(255,106,26,0.05); }
+}
