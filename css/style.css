@@ -1597,64 +1597,152 @@ ul, ol { list-style: none; }
     padding-bottom: 0;
   }
   .operation__stage svg#scene {
-    height: 55vh;
-    min-height: 360px;
-    max-height: 520px;
+    height: 50vh;
+    min-height: 340px;
+    max-height: 500px;
   }
+  /* HUD becomes a horizontal panel BELOW the cranes.
+     Main-crane column on left, Tail/Mobile-crane column on right.
+     Title + vessel rotation span both columns at top.
+     Foot formula spans both columns at bottom.
+  */
   .hud {
-    position: sticky;
-    top: 12px;
+    position: relative;
     left: auto;
-    right: 8px;
+    right: auto;
+    top: auto;
     bottom: auto;
     transform: none;
-    width: 44%;
-    max-width: 180px;
-    margin: -180px 8px 16px auto;
-    padding: 8px 10px;
-    font-size: 9.5px;
-    z-index: 10;
-    background: rgba(10, 10, 11, 0.78);
+    width: calc(100% - 24px);
+    max-width: 100%;
+    margin: 12px 12px 20px;
+    padding: 14px 14px 16px;
+    font-size: 10.5px;
+    z-index: 5;
+    background: rgba(10, 10, 11, 0.9);
     -webkit-backdrop-filter: blur(14px);
     backdrop-filter: blur(14px);
-    border-color: rgba(255, 106, 26, 0.28);
+    border-color: rgba(255, 106, 26, 0.3);
     border-radius: 4px;
-    display: block;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 16px;
+    row-gap: 2px;
   }
   .hud__title {
-    font-size: 8.5px;
-    margin-bottom: 6px;
-    padding-bottom: 6px;
-    letter-spacing: 1.2px;
+    grid-column: 1 / -1;
+    font-size: 9.5px;
+    margin: 0 0 8px;
+    padding-bottom: 8px;
+    letter-spacing: 1.4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,106,26,0.25);
   }
   .hud__vessel {
+    grid-column: 1 / -1;
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    padding: 4px 0;
-    border-top: 1px solid rgba(255,106,26,0.18);
-    border-bottom: 1px solid rgba(255,106,26,0.18);
-    margin-bottom: 6px;
+    padding: 6px 0;
+    border-top: none;
+    border-bottom: 1px solid rgba(255,106,26,0.2);
+    margin-bottom: 8px;
   }
   .hud__vessel-label {
-    font-size: 8.5px;
-    opacity: 0.65;
+    font-size: 9px;
+    opacity: 0.7;
     line-height: 1.15;
+    letter-spacing: 0.8px;
   }
   .hud__vessel-val {
-    font-size: 20px;
+    font-size: 26px;
     color: var(--accent);
     font-weight: 500;
     line-height: 1;
   }
-  .hud__row {
+  /* Environment rows (Vessel Wt, Wind, DAF) go before the two bar blocks — span both columns */
+  .hud > .hud__row {
+    grid-column: 1 / -1;
     padding: 2px 0;
-    font-size: 9.5px;
+    font-size: 10px;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.85;
+  }
+  /* Two .hud__bars blocks — main crane (left column) and tail crane (right column) */
+  .hud__bars {
+    margin: 8px 0 0;
+    padding: 8px 10px;
+    background: rgba(255, 106, 26, 0.04);
+    border: 1px solid rgba(255, 106, 26, 0.15);
+    border-radius: 3px;
+  }
+  .hud__bars-title {
+    display: flex;
+    font-size: 9px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-bottom: 6px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid rgba(255,106,26,0.2);
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .hud__bars-sub {
+    font-size: 8px;
+    opacity: 0.55;
+    letter-spacing: 0.6px;
+    text-transform: none;
+  }
+  .hud__bars .hud__row {
+    padding: 2px 0;
+    font-size: 10px;
     display: flex;
     justify-content: space-between;
   }
-  .hud__bars { margin-top: 4px; }
-  .hud__foot { margin-top: 6px; }
+  .hud__bar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 0;
+    font-size: 10px;
+  }
+  .hud__bar-label {
+    font-size: 9px;
+    letter-spacing: 0.5px;
+    opacity: 0.75;
+  }
+  .hud__bar-track {
+    height: 4px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .hud__bar-fill {
+    height: 100%;
+    background: var(--accent);
+    transition: width 0.3s ease-out;
+  }
+  .hud__bar-val {
+    font-size: 10px;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    min-width: 32px;
+    text-align: right;
+  }
+  .hud__foot {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255,106,26,0.15);
+    font-size: 8.5px;
+    opacity: 0.55;
+    line-height: 1.4;
+  }
 }
 .hud__title {
   font-size: 10px;
@@ -1711,6 +1799,8 @@ ul, ol { list-style: none; }
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex; flex-direction: column; gap: 10px;
 }
+/* Only visible on mobile via media query */
+.hud__bars-title { display: none; }
 .hud__bar {
   display: grid; grid-template-columns: 60px 1fr auto; gap: 10px; align-items: center;
   font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
