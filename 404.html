@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0a0a0a" />
+<title>Page Not Found — JMR Lifting Solutions</title>
+<meta name="description" content="The page you are looking for could not be located. Return to JMR Lifting Solutions — LEEA Certified heavy lift and rigging engineering." />
+<meta name="robots" content="noindex, follow" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="icon" type="image/svg+xml" href="/assets/svg/favicon.svg" />
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MYPF9HM340"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MYPF9HM340', {
+    anonymize_ip: true,
+    page_title: 'Page Not Found',
+    page_path: '/404'
+  });
+  gtag('event', '404_error', {
+    'event_category': 'error',
+    'event_label': window.location.pathname + window.location.search
+  });
+</script>
+
+<style>
+  /* 404 page-specific styles — matches JMR aesthetic */
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #0a0a0a;
+    color: #eae7e0;
+    font-family: 'Inter Tight', system-ui, sans-serif;
+    min-height: 100vh;
+  }
+  .err-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .err-nav {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .err-nav__logo {
+    color: #eae7e0;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+  }
+  .err-nav__back {
+    color: #eae7e0;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .err-nav__back:hover { opacity: 1; color: #ff6a1a; }
+  .err-main {
+    flex: 1;
+    display: grid;
+    place-items: center;
+    padding: 40px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  /* Grid backdrop */
+  .err-main::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 106, 26, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 106, 26, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+  .err-content {
+    max-width: 720px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .err-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ff6a1a;
+    padding: 6px 14px;
+    border: 1px solid rgba(255, 106, 26, 0.3);
+    border-radius: 2px;
+    margin-bottom: 32px;
+  }
+  .err-tag__dot {
+    width: 6px;
+    height: 6px;
+    background: #ff6a1a;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  .err-code {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(96px, 18vw, 200px);
+    font-weight: 300;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    margin: 0 0 24px;
+    background: linear-gradient(180deg, #eae7e0 0%, #6a6862 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .err-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0 0 20px;
+    letter-spacing: -0.01em;
+  }
+  .err-body {
+    font-size: 16px;
+    line-height: 1.65;
+    max-width: 520px;
+    margin: 0 auto 48px;
+    color: rgba(234, 231, 224, 0.65);
+  }
+  .err-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 56px;
+  }
+  .err-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+  .err-btn--primary {
+    background: #ff6a1a;
+    color: #0a0a0a;
+    border: 1px solid #ff6a1a;
+  }
+  .err-btn--primary:hover {
+    background: #ff8140;
+    border-color: #ff8140;
+    transform: translateY(-1px);
+  }
+  .err-btn--ghost {
+    background: transparent;
+    color: #eae7e0;
+    border: 1px solid rgba(234, 231, 224, 0.2);
+  }
+  .err-btn--ghost:hover {
+    border-color: rgba(255, 106, 26, 0.5);
+    color: #ff6a1a;
+  }
+  .err-quicknav {
+    max-width: 640px;
+    margin: 0 auto;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .err-quicknav__title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(234, 231, 224, 0.5);
+    margin-bottom: 20px;
+  }
+  .err-quicknav__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 8px;
+  }
+  .err-quicknav__link {
+    display: block;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: #eae7e0;
+    text-decoration: none;
+    border-radius: 2px;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    transition: all 0.2s;
+    text-align: left;
+  }
+  .err-quicknav__link:hover {
+    border-color: rgba(255, 106, 26, 0.4);
+    background: rgba(255, 106, 26, 0.04);
+  }
+  .err-quicknav__link-arrow {
+    color: #ff6a1a;
+    font-size: 11px;
+    margin-left: 4px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .err-quicknav__link:hover .err-quicknav__link-arrow {
+    opacity: 1;
+  }
+  .err-foot {
+    padding: 24px 40px;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: rgba(234, 231, 224, 0.35);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    text-transform: uppercase;
+  }
+  .err-foot__sep { opacity: 0.4; margin: 0 8px; }
+
+  @media (max-width: 720px) {
+    .err-nav { padding: 16px 20px; }
+    .err-nav__back { font-size: 11px; }
+    .err-main { padding: 24px 16px; }
+    .err-quicknav__grid { grid-template-columns: 1fr 1fr; }
+    .err-foot { padding: 20px 16px; font-size: 9px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="err-page">
+
+  <!-- Simple nav -->
+  <div class="err-nav">
+    <a href="/" class="err-nav__logo" aria-label="JMR Lifting Solutions">
+      <svg width="180" height="40" viewBox="0 0 200 44" fill="none" aria-hidden="true">
+        <path d="M22 8 L38 32 L6 32 Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" fill="none"/>
+        <line x1="13" y1="32" x2="31" y2="32" stroke="#ff6a1a" stroke-width="1.9"/>
+        <line x1="22" y1="32" x2="22" y2="37" stroke="#ff6a1a" stroke-width="1.9"/>
+        <circle cx="22" cy="39.5" r="1.7" fill="#ff6a1a"/>
+        <text x="54" y="25" fill="currentColor" font-family="Inter Tight, sans-serif" font-size="17" font-weight="700" letter-spacing="1.2">JMR</text>
+        <text x="54" y="37" fill="currentColor" fill-opacity="0.5" font-family="JetBrains Mono, monospace" font-size="7" letter-spacing="1.5">LIFTING SOLUTIONS</text>
+      </svg>
+    </a>
+    <a href="/" class="err-nav__back">← Back to Site</a>
+  </div>
+
+  <!-- Main content -->
+  <main class="err-main">
+    <div class="err-content">
+      <div class="err-tag">
+        <span class="err-tag__dot"></span>
+        <span>System Notice</span>
+      </div>
+
+      <h1 class="err-code">404</h1>
+
+      <h2 class="err-title">This load path could not be located.</h2>
+
+      <p class="err-body">
+        The page you requested is not on the plan. It may have been retired,
+        moved during a site rebuild, or the URL you followed was incorrect.
+        No lifts are affected — return to the main routing below.
+      </p>
+
+      <div class="err-actions">
+        <a href="/" class="err-btn err-btn--primary">
+          Return to Home
+        </a>
+        <a href="/services.html" class="err-btn err-btn--ghost">
+          View Services
+        </a>
+      </div>
+
+      <!-- Quick nav -->
+      <div class="err-quicknav">
+        <div class="err-quicknav__title">— Or Continue To —</div>
+        <div class="err-quicknav__grid">
+          <a href="/" class="err-quicknav__link">
+            Home<span class="err-quicknav__link-arrow">→</span>
+          </a>
+          <a href="/services.html" class="err-quicknav__link">
+            Services<span class="err-quicknav__link-arrow">→</span>
+          </a>
+          <a href="/tools.html" class="err-quicknav__link">
+            Tools<span class="err-quicknav__link-arrow">→</span>
+          </a>
+          <a href="/ai-lift-plan.html" class="err-quicknav__link">
+            AI Lift Plan<span class="err-quicknav__link-arrow">→</span>
+          </a>
+          <a href="/company.html" class="err-quicknav__link">
+            Company<span class="err-quicknav__link-arrow">→</span>
+          </a>
+          <a href="/#contact" class="err-quicknav__link">
+            Contact<span class="err-quicknav__link-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="err-foot">
+    <span>JMR Lifting Solutions</span>
+    <span class="err-foot__sep">·</span>
+    <span>LEEA Certified</span>
+    <span class="err-foot__sep">·</span>
+    <span>Engineering the Impossible Lift</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
