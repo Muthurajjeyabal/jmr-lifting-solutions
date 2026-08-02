@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0a0a0a" />
+<title>Contact — JMR Lifting Solutions</title>
+<meta name="description" content="Request an engineered lift study. LEEA Certified Appointed Person compliant with BS 7121, LOLER 1998, and ASME B30. Response within 24 hours." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="css/style.css" />
+<link rel="icon" type="image/svg+xml" href="assets/svg/favicon.svg" />
+<meta name="apple-mobile-web-app-title" content="JMR Lifting" />
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<!-- SEO & Social -->
+<link rel="canonical" href="https://jmrlifting.com/contact.html" />
+<meta name="keywords" content="contact JMR Lifting, lift study request, LEEA certified appointed person, engineered lift plan, heavy lift engineering enquiry" />
+<meta name="author" content="JMR Lifting Solutions" />
+<meta name="robots" content="index, follow" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://jmrlifting.com/contact.html" />
+<meta property="og:title" content="Contact — JMR Lifting Solutions" />
+<meta property="og:description" content="Request an engineered lift study. LEEA Certified. Response within 24 hours." />
+<meta property="og:image" content="https://jmrlifting.com/assets/images/jmr_hero.webp" />
+<meta property="og:site_name" content="JMR Lifting Solutions" />
+<meta property="og:locale" content="en_IN" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Contact — JMR Lifting Solutions" />
+<meta name="twitter:description" content="Request an engineered lift study. LEEA Certified. Response within 24 hours." />
+<meta name="twitter:image" content="https://jmrlifting.com/assets/images/jmr_hero.webp" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact JMR Lifting Solutions",
+  "url": "https://jmrlifting.com/contact.html",
+  "mainEntity": {
+    "@type": "ProfessionalService",
+    "name": "JMR Lifting Solutions",
+    "email": "contact@jmrlifting.com",
+    "telephone": "+91-9597899960",
+    "sameAs": ["https://wa.me/918111002266"],
+    "areaServed": { "@type": "Country", "name": "India" }
+  }
+}
+</script>
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MYPF9HM340"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MYPF9HM340', {
+    anonymize_ip: true,
+    page_title: document.title,
+    page_path: window.location.pathname
+  });
+</script>
+
+<style>
+  /* Contact page specific styles */
+  .contact-page {
+    background: var(--bg, #0a0a0a);
+    color: var(--fg, #eae7e0);
+    min-height: 100vh;
+  }
+
+  /* Hero band */
+  .cp-hero {
+    padding: 140px 40px 60px;
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .cp-hero__meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ff6a1a;
+    padding: 6px 14px;
+    border: 1px solid rgba(255, 106, 26, 0.28);
+    border-radius: 2px;
+    margin-bottom: 40px;
+  }
+  .cp-hero__meta-dot {
+    width: 6px;
+    height: 6px;
+    background: #ff6a1a;
+    border-radius: 50%;
+    animation: cp-pulse 2s infinite;
+  }
+  @keyframes cp-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  .cp-hero__title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(48px, 6.5vw, 88px);
+    font-weight: 300;
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    margin: 0 0 32px;
+  }
+  .cp-hero__title em {
+    font-style: italic;
+    color: #ff6a1a;
+    font-weight: 400;
+  }
+  .cp-hero__body {
+    font-size: 18px;
+    line-height: 1.65;
+    max-width: 640px;
+    color: rgba(234, 231, 224, 0.7);
+    margin: 0;
+  }
+
+  /* Channels grid — quick contact options */
+  .cp-channels {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .cp-channel {
+    padding: 28px 24px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 3px;
+    text-decoration: none;
+    color: #eae7e0;
+    transition: all 0.25s;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cp-channel:hover {
+    border-color: rgba(255, 106, 26, 0.4);
+    background: rgba(255, 106, 26, 0.03);
+    transform: translateY(-2px);
+  }
+  .cp-channel__icon {
+    width: 36px;
+    height: 36px;
+    color: #ff6a1a;
+    opacity: 0.9;
+  }
+  .cp-channel__label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(234, 231, 224, 0.55);
+  }
+  .cp-channel__value {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    line-height: 1.2;
+    color: #eae7e0;
+  }
+  .cp-channel__sub {
+    font-size: 12px;
+    line-height: 1.5;
+    color: rgba(234, 231, 224, 0.5);
+    margin-top: 4px;
+  }
+  .cp-channel__arrow {
+    position: absolute;
+    top: 24px;
+    right: 20px;
+    opacity: 0;
+    color: #ff6a1a;
+    font-size: 14px;
+    transition: opacity 0.2s;
+  }
+  .cp-channel:hover .cp-channel__arrow { opacity: 1; }
+
+  /* Two-column: form + info */
+  .cp-body {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 40px 100px;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 80px;
+  }
+
+  /* Left: form section */
+  .cp-form-section {
+    min-width: 0;
+  }
+  .cp-form-section__eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(234, 231, 224, 0.5);
+    margin-bottom: 12px;
+  }
+  .cp-form-section__title {
+    font-family: 'Fraunces', serif;
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin: 0 0 12px;
+  }
+  .cp-form-section__desc {
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(234, 231, 224, 0.65);
+    margin: 0 0 36px;
+  }
+  .cp-form-section__desc strong { color: #eae7e0; font-weight: 500; }
+
+  .cp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .cp-form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .cp-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+  }
+  .cp-field label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: rgba(234, 231, 224, 0.6);
+  }
+  .cp-field input,
+  .cp-field textarea,
+  .cp-field select {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    color: #eae7e0;
+    padding: 10px 0;
+    font-family: 'Inter Tight', system-ui, sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.005em;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+    border-radius: 0;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .cp-field textarea {
+    resize: vertical;
+    min-height: 90px;
+    line-height: 1.55;
+  }
+  .cp-field input:focus,
+  .cp-field textarea:focus,
+  .cp-field select:focus {
+    border-bottom-color: #ff6a1a;
+  }
+  .cp-field select option {
+    background: #0a0a0a;
+    color: #eae7e0;
+  }
+  .cp-field__hint {
+    font-size: 11px;
+    color: rgba(234, 231, 224, 0.4);
+    line-height: 1.4;
+    margin-top: 4px;
+  }
+
+  .cp-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 0;
+    font-size: 12px;
+    line-height: 1.55;
+    color: rgba(234, 231, 224, 0.55);
+  }
+  .cp-consent input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    margin-top: 2px;
+    accent-color: #ff6a1a;
+    flex-shrink: 0;
+  }
+  .cp-consent a { color: #ff6a1a; text-decoration: none; }
+  .cp-consent a:hover { text-decoration: underline; }
+
+  .cp-submit {
+    background: #ff6a1a;
+    color: #0a0a0a;
+    border: none;
+    padding: 18px 32px;
+    font-family: 'Inter Tight', system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    align-self: flex-start;
+    margin-top: 8px;
+    border-radius: 2px;
+  }
+  .cp-submit:hover {
+    background: #ff8140;
+    transform: translateY(-1px);
+  }
+  .cp-submit:disabled { opacity: 0.6; cursor: wait; }
+
+  .cp-form__status {
+    display: none;
+    padding: 20px;
+    background: rgba(70, 200, 100, 0.08);
+    border: 1px solid rgba(70, 200, 100, 0.25);
+    border-radius: 3px;
+    color: rgba(180, 240, 200, 0.9);
+    align-items: flex-start;
+    gap: 14px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    font-size: 14px;
+  }
+  .cp-form__status.is-visible { display: flex; }
+  .cp-form__status svg { flex-shrink: 0; color: #6dcc85; }
+  .cp-form__status strong { display: block; color: #eae7e0; font-size: 15px; margin-bottom: 4px; }
+
+  .cp-form__error {
+    display: none;
+    padding: 14px 18px;
+    background: rgba(200, 60, 60, 0.08);
+    border: 1px solid rgba(200, 60, 60, 0.25);
+    border-radius: 3px;
+    color: rgba(240, 180, 180, 0.9);
+    font-size: 13px;
+    margin-top: 12px;
+  }
+  .cp-form__error.is-visible { display: block; }
+
+  /* Right: info sidebar */
+  .cp-side {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .cp-card {
+    padding: 28px 26px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 3px;
+  }
+  .cp-card__eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ff6a1a;
+    margin-bottom: 14px;
+  }
+  .cp-card__title {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0 0 16px;
+  }
+  .cp-card__body {
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(234, 231, 224, 0.65);
+    margin: 0 0 16px;
+  }
+  .cp-card__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .cp-card__list li {
+    padding-left: 20px;
+    position: relative;
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(234, 231, 224, 0.7);
+  }
+  .cp-card__list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #ff6a1a;
+  }
+
+  /* Compliance/badges card */
+  .cp-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .cp-badge {
+    padding: 6px 12px;
+    background: rgba(255, 106, 26, 0.06);
+    border: 1px solid rgba(255, 106, 26, 0.2);
+    border-radius: 2px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    color: rgba(255, 200, 160, 0.85);
+    text-transform: uppercase;
+  }
+
+  /* SLA timeline */
+  .cp-sla {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 12px;
+  }
+  .cp-sla__row {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 14px;
+    align-items: baseline;
+  }
+  .cp-sla__time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1.4px;
+    color: #ff6a1a;
+    text-transform: uppercase;
+  }
+  .cp-sla__label {
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(234, 231, 224, 0.75);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .cp-hero { padding: 100px 20px 40px; }
+    .cp-hero__title { font-size: clamp(36px, 9vw, 56px); }
+    .cp-channels { padding: 0 20px 40px; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .cp-channel { padding: 20px 16px; }
+    .cp-channel__value { font-size: 16px; }
+    .cp-body {
+      grid-template-columns: 1fr;
+      gap: 48px;
+      padding: 20px 20px 80px;
+    }
+    .cp-form__row { grid-template-columns: 1fr; gap: 20px; }
+    .cp-side { order: -1; }
+    .cp-form-section__title { font-size: 26px; }
+  }
+  @media (max-width: 480px) {
+    .cp-channels { grid-template-columns: 1fr; }
+    .cp-channel__value { font-size: 18px; }
+  }
+</style>
+</head>
+<body class="contact-page">
+
+<!-- Progress bar -->
+<div class="scroll-progress"><div class="scroll-progress__bar" id="scrollProgress"></div></div>
+
+<!-- Navigation (reuses site nav from index.html) -->
+<nav class="nav">
+  <a href="index.html" class="nav__logo" aria-label="JMR Lifting Solutions — Engineering the impossible lift">
+    <svg width="200" height="44" viewBox="0 0 200 44" fill="none" aria-hidden="true">
+      <path d="M22 8 L38 32 L6 32 Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" fill="none"/>
+      <line x1="13" y1="32" x2="31" y2="32" stroke="#ff6a1a" stroke-width="1.9"/>
+      <line x1="22" y1="32" x2="22" y2="37" stroke="#ff6a1a" stroke-width="1.9"/>
+      <circle cx="22" cy="39.5" r="1.7" fill="#ff6a1a"/>
+      <text x="54" y="25" fill="currentColor" font-family="Inter Tight, sans-serif" font-size="17" font-weight="700" letter-spacing="1.2">JMR</text>
+      <text x="54" y="37" fill="currentColor" fill-opacity="0.5" font-family="JetBrains Mono, monospace" font-size="7" letter-spacing="1.5">LIFTING SOLUTIONS</text>
+    </svg>
+  </a>
+  <ul class="nav__links">
+    <li><a href="index.html" class="nav__link">Home</a></li>
+    <li><a href="services.html" class="nav__link">Services</a></li>
+    <li><a href="tools.html" class="nav__link">Tools</a></li>
+    <li><a href="ai-lift-plan.html" class="nav__link">AI Lift Plan</a></li>
+    <li><a href="company.html" class="nav__link">Company</a></li>
+    <li><a href="contact.html" class="nav__link" aria-current="page">Contact</a></li>
+  </ul>
+  <a href="#form" class="nav__cta">Request a Lift Study</a>
+</nav>
+
+<main>
+
+<!-- HERO BAND -->
+<section class="cp-hero">
+  <div class="cp-hero__meta">
+    <span class="cp-hero__meta-dot"></span>
+    <span>Start a Lift Study</span>
+  </div>
+  <h1 class="cp-hero__title">
+    Send us the load.<br />
+    <em>We return an engineered plan.</em>
+  </h1>
+  <p class="cp-hero__body">
+    Every enquiry is reviewed personally by a LEEA Certified Appointed Person.
+    Submit your load specs, drawings, and site details — you'll receive a preliminary
+    lift study within five working days. No obligation, no charge.
+  </p>
+</section>
+
+<!-- QUICK CONTACT CHANNELS -->
+<section class="cp-channels" aria-label="Direct contact channels">
+
+  <a href="https://wa.me/918111002266?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20lift%20study." class="cp-channel" target="_blank" rel="noopener" onclick="gtag('event', 'contact_channel_click', {channel: 'whatsapp'})">
+    <svg class="cp-channel__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <path d="M12 2C6.48 2 2 6.48 2 12c0 1.83.5 3.55 1.38 5.03L2 22l5.14-1.35C8.6 21.5 10.25 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M8.5 9.5c0-.5.4-1 .9-1h.8c.3 0 .5.2.6.5l.6 1.7c.1.3 0 .6-.2.8l-.5.4c.6 1.1 1.4 1.9 2.5 2.5l.4-.5c.2-.2.5-.3.8-.2l1.7.6c.3.1.5.3.5.6v.8c0 .5-.5.9-1 .9-3.9 0-7-3.1-7-7z" fill="currentColor"/>
+    </svg>
+    <span class="cp-channel__label">WhatsApp</span>
+    <span class="cp-channel__value">+91 81110 02266</span>
+    <span class="cp-channel__sub">Fastest response · Business hours IST</span>
+    <span class="cp-channel__arrow">→</span>
+  </a>
+
+  <a href="tel:+919597899960" class="cp-channel" onclick="gtag('event', 'contact_channel_click', {channel: 'phone'})">
+    <svg class="cp-channel__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="cp-channel__label">Direct Call</span>
+    <span class="cp-channel__value">+91 95978 99960</span>
+    <span class="cp-channel__sub">Voice calls · Mon-Sat</span>
+    <span class="cp-channel__arrow">→</span>
+  </a>
+
+  <a href="mailto:contact@jmrlifting.com?subject=Lift%20Study%20Enquiry" class="cp-channel" onclick="gtag('event', 'contact_channel_click', {channel: 'email'})">
+    <svg class="cp-channel__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M22 6l-10 7L2 6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="cp-channel__label">Email</span>
+    <span class="cp-channel__value">contact@jmrlifting.com</span>
+    <span class="cp-channel__sub">Detailed briefs + attachments</span>
+    <span class="cp-channel__arrow">→</span>
+  </a>
+
+  <a href="#form" class="cp-channel" onclick="gtag('event', 'contact_channel_click', {channel: 'form'})">
+    <svg class="cp-channel__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="cp-channel__label">Lift Study Form</span>
+    <span class="cp-channel__value">Full brief + files</span>
+    <span class="cp-channel__sub">Structured enquiry · Below</span>
+    <span class="cp-channel__arrow">↓</span>
+  </a>
+
+</section>
+
+<!-- FORM + INFO -->
+<section class="cp-body">
+
+  <!-- LEFT: FORM -->
+  <div class="cp-form-section" id="form">
+    <div class="cp-form-section__eyebrow">— Lift Study Request Form —</div>
+    <h2 class="cp-form-section__title">Request an engineered lift plan.</h2>
+    <p class="cp-form-section__desc">
+      Attach your GA drawing, vessel weight, foundation coordinates, and target date.
+      <strong>Preliminary lift study delivered within 5 working days</strong> — free of charge,
+      no obligation to proceed.
+    </p>
+
+    <!-- Success state -->
+    <div class="cp-form__status" id="formStatus" role="status" aria-live="polite">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M8 12L11 15L16 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <strong>Request received</strong>
+        Our LEEA Certified Appointed Person will respond within 24 hours.
+        For same-day matters, message us on WhatsApp above.
+      </div>
+    </div>
+
+    <form id="jmr-contact-form" class="cp-form" action="https://formspree.io/f/xblkaqzy" method="POST" novalidate>
+
+      <div class="cp-form__row">
+        <div class="cp-field">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" required autocomplete="name" />
+        </div>
+        <div class="cp-field">
+          <label for="company">Company</label>
+          <input id="company" name="company" type="text" required autocomplete="organization" />
+        </div>
+      </div>
+
+      <div class="cp-form__row">
+        <div class="cp-field">
+          <label for="email">Work email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" />
+        </div>
+        <div class="cp-field">
+          <label for="phone">Phone / WhatsApp</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" />
+        </div>
+      </div>
+
+      <div class="cp-form__row">
+        <div class="cp-field">
+          <label for="project_type">Project type</label>
+          <select id="project_type" name="project_type" required>
+            <option value="">Select a type</option>
+            <option value="Lift study">Lift study (planning)</option>
+            <option value="Method statement">Method statement</option>
+            <option value="Risk assessment">Risk assessment</option>
+            <option value="Rigging design">Rigging design</option>
+            <option value="Site supervision">Site supervision (Appointed Person)</option>
+            <option value="Tandem / heavy lift">Tandem / heavy lift engineering</option>
+            <option value="Consultancy">General consultancy</option>
+            <option value="Other">Other (describe below)</option>
+          </select>
+        </div>
+        <div class="cp-field">
+          <label for="target_date">Target date (approx.)</label>
+          <input id="target_date" name="target_date" type="text" placeholder="e.g. Q4 2026 · March 2027" />
+        </div>
+      </div>
+
+      <div class="cp-field">
+        <label for="brief">Project brief</label>
+        <textarea id="brief" name="message" rows="5" required placeholder="Load weight, dimensions, site location, foundation constraints, wind/environmental factors, target dates, any known constraints..."></textarea>
+        <span class="cp-field__hint">The more detail, the more precise the preliminary study.</span>
+      </div>
+
+      <!-- Uploadcare attachments widget -->
+      <div class="cp-field">
+        <label>Attachments</label>
+        <input
+          type="hidden"
+          role="uploadcare-uploader"
+          name="attachments"
+          data-public-key="3fdf9877b625442661de"
+          data-multiple="true"
+          data-multiple-max="5"
+          data-multiple-min="0"
+          data-images-only="false"
+          data-preview-step="true"
+          data-clearable="true"
+          data-tabs="file url camera"
+          data-source-list="local, url, gdrive, dropbox"
+          data-locale-translations='{"en":{"buttons":{"choose":{"files":{"one":"Attach file","other":"Attach files (GA/spec/PDF)"}}}}}'
+        />
+        <span class="cp-field__hint">GA drawings, spec sheets, site photos — up to 100MB per file, 5 files max.</span>
+        <div id="uploadedFiles" aria-live="polite" style="margin-top:8px;"></div>
+      </div>
+
+      <label class="cp-consent">
+        <input type="checkbox" name="consent" required />
+        <span>
+          I authorise JMR Lifting Solutions to contact me regarding this enquiry.
+          Details submitted are kept confidential and never shared with third parties.
+        </span>
+      </label>
+
+      <input type="hidden" name="_subject" value="JMR Contact Page — Lift Study Enquiry" />
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+      <button type="submit" class="cp-submit" id="submitBtn">
+        <span>Send lift study request</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <div class="cp-form__error" id="formError">
+        Submission failed. Please retry — or contact us via WhatsApp above.
+      </div>
+    </form>
+  </div>
+
+  <!-- RIGHT: SIDEBAR -->
+  <aside class="cp-side">
+
+    <!-- Response SLA -->
+    <div class="cp-card">
+      <div class="cp-card__eyebrow">Response Timeline</div>
+      <h3 class="cp-card__title">What happens after you send.</h3>
+      <div class="cp-sla">
+        <div class="cp-sla__row">
+          <span class="cp-sla__time">≤ 24h</span>
+          <span class="cp-sla__label">Confirmation of receipt + initial clarifying questions.</span>
+        </div>
+        <div class="cp-sla__row">
+          <span class="cp-sla__time">≤ 48h</span>
+          <span class="cp-sla__label">Scoping call scheduled (WhatsApp / video / phone).</span>
+        </div>
+        <div class="cp-sla__row">
+          <span class="cp-sla__time">≤ 5d</span>
+          <span class="cp-sla__label">Preliminary lift study delivered — no charge, no obligation.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compliance card -->
+    <div class="cp-card">
+      <div class="cp-card__eyebrow">Standards & Compliance</div>
+      <h3 class="cp-card__title">Every plan meets these standards.</h3>
+      <p class="cp-card__body">
+        All lifts are planned and engineered under the direction of a LEEA Certified
+        Appointed Person, in accordance with international lifting standards.
+      </p>
+      <div class="cp-badges">
+        <span class="cp-badge">LEEA Certified</span>
+        <span class="cp-badge">BS 7121</span>
+        <span class="cp-badge">LOLER 1998</span>
+        <span class="cp-badge">ASME B30</span>
+      </div>
+    </div>
+
+    <!-- What to include -->
+    <div class="cp-card">
+      <div class="cp-card__eyebrow">For the fastest response</div>
+      <h3 class="cp-card__title">Include these details.</h3>
+      <ul class="cp-card__list">
+        <li>Load weight + CoG position</li>
+        <li>Overall dimensions (L × W × H)</li>
+        <li>GA drawing (PDF/DWG)</li>
+        <li>Site location + access constraints</li>
+        <li>Foundation coordinates / bearing capacity</li>
+        <li>Target lift date window</li>
+        <li>Any known wind/environmental limits</li>
+      </ul>
+    </div>
+
+  </aside>
+
+</section>
+
+</main>
+
+<!-- FOOTER (reuse site style) -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <svg width="260" height="56" viewBox="0 0 200 44" fill="none" aria-hidden="true">
+        <path d="M22 8 L38 32 L6 32 Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" fill="none"/>
+        <line x1="13" y1="32" x2="31" y2="32" stroke="#ff6a1a" stroke-width="1.9"/>
+        <line x1="22" y1="32" x2="22" y2="37" stroke="#ff6a1a" stroke-width="1.9"/>
+        <circle cx="22" cy="39.5" r="1.7" fill="#ff6a1a"/>
+        <text x="54" y="25" fill="currentColor" font-family="Inter Tight, sans-serif" font-size="17" font-weight="700" letter-spacing="1.2">JMR</text>
+        <text x="54" y="37" fill="currentColor" fill-opacity="0.5" font-family="JetBrains Mono, monospace" font-size="7" letter-spacing="1.5">LIFTING SOLUTIONS</text>
+      </svg>
+      <p class="footer__tagline">Engineering the impossible lift.</p>
+    </div>
+    <div class="footer__cols">
+      <div>
+        <div class="footer__col-title">Services</div>
+        <a href="services.html">Lift Planning</a>
+        <a href="services.html">Method Statements</a>
+        <a href="services.html">Risk Assessments</a>
+        <a href="services.html">Rigging Design</a>
+        <a href="services.html">Site Supervision</a>
+      </div>
+      <div>
+        <div class="footer__col-title">Company</div>
+        <a href="company.html">About</a>
+        <a href="tools.html">Tools</a>
+        <a href="ai-lift-plan.html">AI Lift Plan</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <div class="footer__col-title">Reach us</div>
+        <a href="mailto:contact@jmrlifting.com">contact@jmrlifting.com</a>
+        <a href="tel:+919597899960">+91 95978 99960</a>
+        <a href="https://wa.me/918111002266" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <span>© 2026 JMR Lifting Solutions · All rights reserved</span>
+      <span>LEEA Certified · BS 7121 · LOLER 1998 · ASME B30</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Uploadcare -->
+<script>
+  UPLOADCARE_PUBLIC_KEY = '3fdf9877b625442661de';
+  UPLOADCARE_LOCALE = 'en';
+</script>
+<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js" charset="utf-8"></script>
+
+<!-- Form + upload handling -->
+<script>
+(function() {
+  // Scroll progress bar (matches other pages)
+  const progressBar = document.getElementById('scrollProgress');
+  if (progressBar) {
+    window.addEventListener('scroll', function() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = scrolled + '%';
+    }, { passive: true });
+  }
+
+  // Uploadcare tracking
+  let uploadedFileInfo = [];
+  document.addEventListener('DOMContentLoaded', function() {
+    const input = document.querySelector('[role="uploadcare-uploader"]');
+    const display = document.getElementById('uploadedFiles');
+    if (!input || !window.uploadcare) return;
+    const widget = uploadcare.MultipleWidget(input);
+    widget.onChange(function(fileGroup) {
+      uploadedFileInfo = [];
+      if (display) display.innerHTML = '';
+      if (fileGroup) {
+        fileGroup.files().forEach(function(fp) {
+          fp.done(function(info) {
+            uploadedFileInfo.push({
+              name: info.name,
+              size: info.size,
+              url: info.cdnUrl
+            });
+            if (display) {
+              const item = document.createElement('div');
+              item.style.cssText = 'font-size:12px;color:rgba(234,231,224,0.7);padding:4px 0;font-family:JetBrains Mono, monospace;';
+              item.innerHTML = '✓ ' + info.name + ' (' + Math.round(info.size / 1024) + ' KB)';
+              display.appendChild(item);
+            }
+          });
+        });
+      }
+    });
+  });
+
+  // Form submission — AJAX to Formspree, with success state
+  const form = document.getElementById('jmr-contact-form');
+  const status = document.getElementById('formStatus');
+  const error = document.getElementById('formError');
+  const submitBtn = document.getElementById('submitBtn');
+
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      error.classList.remove('is-visible');
+      submitBtn.disabled = true;
+      submitBtn.querySelector('span').textContent = 'Sending...';
+
+      const formData = new FormData(form);
+      // Expand uploaded files into readable list
+      if (uploadedFileInfo.length > 0) {
+        const fileList = uploadedFileInfo.map(f => f.name + ' — ' + f.url).join('\n');
+        formData.set('attachments', fileList);
+      }
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          // GA4 conversion event
+          if (window.gtag) {
+            gtag('event', 'form_submit', {
+              form_id: 'jmr-contact-form',
+              page_path: '/contact'
+            });
+            gtag('event', 'generate_lead', { value: 1 });
+          }
+          form.style.display = 'none';
+          status.classList.add('is-visible');
+          status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          throw new Error('Formspree returned ' + response.status);
+        }
+      } catch (err) {
+        error.classList.add('is-visible');
+        submitBtn.disabled = false;
+        submitBtn.querySelector('span').textContent = 'Send lift study request';
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
