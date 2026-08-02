@@ -1597,38 +1597,64 @@ ul, ol { list-style: none; }
     padding-bottom: 0;
   }
   .operation__stage svg#scene {
-    height: 42vh;
-    min-height: 300px;
-    max-height: 420px;
+    height: 55vh;
+    min-height: 360px;
+    max-height: 520px;
   }
   .hud {
     position: sticky;
     top: 12px;
     left: auto;
-    right: auto;
+    right: 8px;
     bottom: auto;
     transform: none;
-    width: calc(100% - 24px);
-    max-width: 100%;
-    margin: -60px 12px 24px;
-    padding: 12px 14px;
-    font-size: 11px;
+    width: 44%;
+    max-width: 180px;
+    margin: -180px 8px 16px auto;
+    padding: 8px 10px;
+    font-size: 9.5px;
     z-index: 10;
-    background: rgba(10, 10, 11, 0.92);
-    -webkit-backdrop-filter: blur(16px);
-    backdrop-filter: blur(16px);
-    border-color: rgba(255, 106, 26, 0.35);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px 14px;
+    background: rgba(10, 10, 11, 0.78);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border-color: rgba(255, 106, 26, 0.28);
+    border-radius: 4px;
+    display: block;
   }
-  .hud__title { grid-column: 1 / -1; font-size: 10px; margin-bottom: 4px; opacity: 0.85; }
-  .hud__vessel { grid-column: 1 / -1; display: flex; align-items: baseline; justify-content: space-between; padding: 6px 0; border-top: 1px solid rgba(255,106,26,0.2); border-bottom: 1px solid rgba(255,106,26,0.2); margin-bottom: 4px; }
-  .hud__vessel-label { font-size: 10px; opacity: 0.7; line-height: 1.2; }
-  .hud__vessel-val { font-size: 32px; color: var(--accent); font-weight: 500; }
-  .hud__row { padding: 3px 0; font-size: 11px; }
-  .hud__bars { margin-top: 6px; grid-column: 1 / -1; }
-  .hud__foot { grid-column: 1 / -1; margin-top: 8px; }
+  .hud__title {
+    font-size: 8.5px;
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+    letter-spacing: 1.2px;
+  }
+  .hud__vessel {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 4px 0;
+    border-top: 1px solid rgba(255,106,26,0.18);
+    border-bottom: 1px solid rgba(255,106,26,0.18);
+    margin-bottom: 6px;
+  }
+  .hud__vessel-label {
+    font-size: 8.5px;
+    opacity: 0.65;
+    line-height: 1.15;
+  }
+  .hud__vessel-val {
+    font-size: 20px;
+    color: var(--accent);
+    font-weight: 500;
+    line-height: 1;
+  }
+  .hud__row {
+    padding: 2px 0;
+    font-size: 9.5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .hud__bars { margin-top: 4px; }
+  .hud__foot { margin-top: 6px; }
 }
 .hud__title {
   font-size: 10px;
