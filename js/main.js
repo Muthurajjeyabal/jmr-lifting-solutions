@@ -4,7 +4,10 @@
 (function () {
   'use strict';
 
-  gsap.registerPlugin(ScrollTrigger);
+  // Safety guard — if GSAP failed to load (offline, blocker), still run counters + non-GSAP code
+  var hasGsap = typeof window.gsap !== 'undefined';
+  var hasScrollTrigger = hasGsap && typeof window.ScrollTrigger !== 'undefined';
+  if (hasScrollTrigger) gsap.registerPlugin(ScrollTrigger);
 
   /* ---- Scroll progress bar ---- */
   const progressBar = document.getElementById('scrollProgress');
@@ -78,28 +81,37 @@
   })();
 
   /* ---- Hero parallax on scroll ---- */
-  gsap.to('.hero__img', {
-    yPercent: 15,
-    scale: 1.05,
-    ease: 'none',
-    scrollTrigger: {
-      trigger: '.hero',
-      start: 'top top',
-      end: 'bottom top',
-      scrub: 1
-    }
-  });
+  if (hasScrollTrigger && document.querySelector('.hero__img')) {
+    gsap.to('.hero__img', {
+      yPercent: 15,
+      scale: 1.05,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1
+      }
+    });
+  }
 
   /* ---- Nav appearance on scroll ---- */
   const nav = document.querySelector('.nav');
-  ScrollTrigger.create({
-    start: 'top -100',
-    end: 99999,
-    onUpdate: (self) => {
-      if (self.progress > 0) nav.style.background = 'rgba(10,10,11,0.95)';
-      else nav.style.background = '';
-    }
-  });
+  if (hasScrollTrigger && nav) {
+    ScrollTrigger.create({
+      start: 'top -100',
+      end: 99999,
+      onUpdate: (self) => {
+        if (self.progress > 0) nav.style.background = 'rgba(10,10,11,0.95)';
+        else nav.style.background = '';
+      }
+    });
+  } else if (nav) {
+    // Fallback — use scroll listener
+    window.addEventListener('scroll', function(){
+      nav.style.background = window.scrollY > 100 ? 'rgba(10,10,11,0.95)' : '';
+    }, { passive: true });
+  }
 
   /* ---- Operation section: pinned scroll animation ---- */
   const stage = document.getElementById('operationStage');
@@ -107,7 +119,7 @@
   const progressDegree = document.getElementById('progressDegree');
   const progressFill = document.getElementById('progressFill');
 
-  if (stage && window.SceneEngine) {
+  if (hasScrollTrigger && stage && window.SceneEngine) {
     // Initialize the SVG scene
     window.SceneEngine.init();
 
@@ -206,13 +218,15 @@
   }
 
   /* ---- Cursor accent on cap-cards ---- */
-  document.querySelectorAll('.cap-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      gsap.to(card, { y: -6, duration: 0.4, ease: 'power2.out' });
+  if (hasGsap) {
+    document.querySelectorAll('.cap-card').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        gsap.to(card, { y: -6, duration: 0.4, ease: 'power2.out' });
+      });
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, { y: 0, duration: 0.4, ease: 'power2.out' });
+      });
     });
-    card.addEventListener('mouseleave', () => {
-      gsap.to(card, { y: 0, duration: 0.4, ease: 'power2.out' });
-    });
-  });
+  }
 
 })();
