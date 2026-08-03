@@ -685,7 +685,9 @@
       var el = document.getElementById(id);
       if (el) el.style.width = Math.min(100, Math.max(0, pct)) + '%';
     }
-    setHud('hudDegree', degreeVal);
+    // hudDegree contains <sup>°</sup>, replace only the leading number
+    var hudDegEl = document.getElementById('hudDegree');
+    if (hudDegEl) hudDegEl.innerHTML = degreeVal + '<sup>°</sup>';
     setHud('hudVesselWeight', W.toFixed(0) + ' t');
     setHud('hudMainLoad', mainLoadT.toFixed(1) + ' t');
     setHud('hudTailLoad', tailLoadT.toFixed(1) + ' t');

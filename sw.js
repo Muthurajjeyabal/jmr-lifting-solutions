@@ -8,7 +8,7 @@
    - Third-party (Uploadcare, Formspree, GA, GSAP CDN) → network only, never cached
 */
 
-const VERSION = 'jmr-v5-fix';
+const VERSION = 'jmr-v6-deg';
 const SHELL_CACHE = `jmr-shell-${VERSION}`;
 const RUNTIME_CACHE = `jmr-runtime-${VERSION}`;
 const FONT_CACHE = `jmr-fonts-${VERSION}`;
