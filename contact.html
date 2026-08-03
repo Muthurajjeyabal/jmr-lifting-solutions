@@ -9,14 +9,14 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
 
 <link rel="stylesheet" href="css/style.css" />
 <link rel="icon" type="image/svg+xml" href="assets/svg/favicon.svg" />
 <meta name="apple-mobile-web-app-title" content="JMR Lifting" />
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 
 <!-- SEO & Social -->
 <link rel="canonical" href="https://jmrlifting.com/contact.html" />
@@ -497,6 +497,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 </head>
 <body class="contact-page">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -824,12 +825,57 @@
   </div>
 </footer>
 
-<!-- Uploadcare -->
+<!-- Uploadcare (lazy-loaded on form scroll) -->
 <script>
   UPLOADCARE_PUBLIC_KEY = '3fdf9877b625442661de';
   UPLOADCARE_LOCALE = 'en';
+  (function(){
+    // Preconnect to Uploadcare CDN as soon as we know we'll need it
+    var pc = document.createElement('link');
+    pc.rel = 'preconnect'; pc.href = 'https://ucarecdn.com'; pc.crossOrigin = 'anonymous';
+    document.head.appendChild(pc);
+
+    var loaded = false;
+    function loadUploadcare(reason) {
+      if (loaded) return; loaded = true;
+      var s = document.createElement('script');
+      s.src = 'https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js';
+      s.async = true;
+      s.charset = 'utf-8';
+      s.onload = function(){
+        // Fire a custom event so the form init can hook the widget once ready
+        document.dispatchEvent(new CustomEvent('uploadcare:ready'));
+      };
+      document.body.appendChild(s);
+      if (window.gtag) gtag('event', 'uploadcare_lazy_load', { reason: reason });
+    }
+
+    // Load on any of: form section visible, user focus on any form field, timeout fallback
+    document.addEventListener('DOMContentLoaded', function(){
+      var form = document.getElementById('jmr-contact-form');
+      var hidden = document.querySelector('[role="uploadcare-uploader"]');
+      if (!form && !hidden) return;
+      // 1. Watch a VISIBLE element (the form itself, not the hidden input)
+      var target = form || hidden.parentElement;
+      if (target && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function(entries){
+          entries.forEach(function(e){
+            if (e.isIntersecting) { loadUploadcare('scroll'); io.disconnect(); }
+          });
+        }, { rootMargin: '600px 0px' });
+        io.observe(target);
+      } else {
+        setTimeout(function(){ loadUploadcare('timeout'); }, 2500);
+      }
+      // 2. Any form field focus should also trigger early load
+      if (form) {
+        form.addEventListener('focusin', function(){ loadUploadcare('focus'); }, { once: true });
+      }
+      // 3. Safety net — after 8s idle, force-load so widget is ready even if IO fails
+      setTimeout(function(){ loadUploadcare('idle-fallback'); }, 8000);
+    });
+  })();
 </script>
-<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js" charset="utf-8"></script>
 
 <!-- Form + upload handling -->
 <script>
@@ -845,12 +891,15 @@
     }, { passive: true });
   }
 
-  // Uploadcare tracking
+  // Uploadcare tracking — initialise once script has lazy-loaded
   let uploadedFileInfo = [];
-  document.addEventListener('DOMContentLoaded', function() {
+  let uploadcareInitialised = false;
+  function initUploadcareWidget() {
+    if (uploadcareInitialised) return;
     const input = document.querySelector('[role="uploadcare-uploader"]');
     const display = document.getElementById('uploadedFiles');
     if (!input || !window.uploadcare) return;
+    uploadcareInitialised = true;
     const widget = uploadcare.MultipleWidget(input);
     widget.onChange(function(fileGroup) {
       uploadedFileInfo = [];
@@ -873,6 +922,11 @@
         });
       }
     });
+  }
+  // Try both paths: event from lazy loader + immediate check in case already loaded
+  document.addEventListener('uploadcare:ready', initUploadcareWidget);
+  document.addEventListener('DOMContentLoaded', function() {
+    if (window.uploadcare) initUploadcareWidget();
   });
 
   // Form submission — AJAX to Formspree, with success state

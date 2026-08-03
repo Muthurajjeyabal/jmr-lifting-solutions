@@ -9,15 +9,17 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
-<link rel="preload" as="image" href="assets/images/jmr_hero.webp" fetchpriority="high" />
+
+<link rel="preload" as="image" href="assets/images/jmr_hero-1024w.webp"
+      imagesrcset="assets/images/jmr_hero-640w.webp 640w, assets/images/jmr_hero-1024w.webp 1024w, assets/images/jmr_hero.webp 1536w"
+      imagesizes="100vw" fetchpriority="high" />
 <link rel="stylesheet" href="css/style.css" />
 <link rel="icon" type="image/svg+xml" href="assets/svg/favicon.svg" />
 <meta name="apple-mobile-web-app-title" content="JMR Lifting" />
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 
 <!-- SEO & Social -->
 <link rel="canonical" href="https://jmrlifting.com/" />
@@ -98,6 +100,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -141,7 +144,11 @@
 <!-- ========================================================== -->
 <section class="hero" id="top">
   <div class="hero__bg">
-    <img src="assets/images/jmr_hero.webp" alt="Tandem heavy lift operation at refinery" class="hero__img" fetchpriority="high" />
+    <img src="assets/images/jmr_hero-1024w.webp"
+         srcset="assets/images/jmr_hero-640w.webp 640w, assets/images/jmr_hero-1024w.webp 1024w, assets/images/jmr_hero.webp 1536w"
+         sizes="100vw"
+         width="1536" height="1024"
+         alt="Tandem heavy lift operation at refinery" class="hero__img" fetchpriority="high" />
     <div class="hero__gradient"></div>
     <div class="hero__grain"></div>
   </div>
@@ -1042,7 +1049,7 @@
 
   <div class="fleet__grid">
     <article class="fleet-card">
-      <div class="fleet-card__img"><img src="assets/images/jmr_crawler.webp" alt="Crawler crane" loading="lazy" /></div>
+      <div class="fleet-card__img"><img src="assets/images/jmr_crawler-640w.webp" srcset="assets/images/jmr_crawler-640w.webp 640w, assets/images/jmr_crawler-1024w.webp 1024w" sizes="(max-width: 640px) 100vw, 33vw" width="1024" height="683" alt="Crawler crane" loading="lazy" decoding="async" /></div>
       <div class="fleet-card__body">
         <div class="fleet-card__tag">Crawler Crane</div>
         <h3 class="fleet-card__title">Manitowoc MLC650 &amp; equivalents</h3>
@@ -1055,7 +1062,7 @@
     </article>
 
     <article class="fleet-card">
-      <div class="fleet-card__img"><img src="assets/images/jmr_mobile.webp" alt="Mobile telescopic crane" loading="lazy" /></div>
+      <div class="fleet-card__img"><img src="assets/images/jmr_mobile-640w.webp" srcset="assets/images/jmr_mobile-640w.webp 640w, assets/images/jmr_mobile-1024w.webp 1024w" sizes="(max-width: 640px) 100vw, 33vw" width="1024" height="683" alt="Mobile telescopic crane" loading="lazy" decoding="async" /></div>
       <div class="fleet-card__body">
         <div class="fleet-card__tag">All-Terrain Mobile</div>
         <h3 class="fleet-card__title">Liebherr LTM 1750-9.1 class</h3>
@@ -1068,7 +1075,7 @@
     </article>
 
     <article class="fleet-card">
-      <div class="fleet-card__img"><img src="assets/images/jmr_rigging.webp" alt="Custom rigging equipment" loading="lazy" /></div>
+      <div class="fleet-card__img"><img src="assets/images/jmr_rigging-640w.webp" srcset="assets/images/jmr_rigging-640w.webp 640w, assets/images/jmr_rigging-1024w.webp 1024w" sizes="(max-width: 640px) 100vw, 33vw" width="683" height="1024" alt="Custom rigging equipment" loading="lazy" decoding="async" /></div>
       <div class="fleet-card__body">
         <div class="fleet-card__tag">Engineered Rigging</div>
         <h3 class="fleet-card__title">Custom Spreader &amp; Lifting Frames</h3>
@@ -1183,20 +1190,51 @@
       </button>
     </form>
 
-    <!-- Uploadcare widget config -->
+    <!-- Uploadcare widget config (lazy) -->
     <script>
       UPLOADCARE_PUBLIC_KEY = '3fdf9877b625442661de';
       UPLOADCARE_LOCALE = 'en';
+      (function(){
+        var pc = document.createElement('link');
+        pc.rel = 'preconnect'; pc.href = 'https://ucarecdn.com'; pc.crossOrigin = 'anonymous';
+        document.head.appendChild(pc);
+        var loaded = false;
+        function loadUploadcare(reason){
+          if (loaded) return; loaded = true;
+          var s = document.createElement('script');
+          s.src = 'https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js';
+          s.async = true; s.charset = 'utf-8';
+          s.onload = function(){ document.dispatchEvent(new CustomEvent('uploadcare:ready')); };
+          document.body.appendChild(s);
+          if (window.gtag) gtag('event', 'uploadcare_lazy_load', { reason: reason, page: 'index' });
+        }
+        document.addEventListener('DOMContentLoaded', function(){
+          var form = document.getElementById('jmr-contact-form');
+          if (!form) return;
+          if ('IntersectionObserver' in window) {
+            var io = new IntersectionObserver(function(entries){
+              entries.forEach(function(e){
+                if (e.isIntersecting) { loadUploadcare('scroll'); io.disconnect(); }
+              });
+            }, { rootMargin: '600px 0px' });
+            io.observe(form);
+          }
+          form.addEventListener('focusin', function(){ loadUploadcare('focus'); }, { once: true });
+          setTimeout(function(){ loadUploadcare('idle-fallback'); }, 8000);
+        });
+      })();
     </script>
-    <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js" charset="utf-8"></script>
     <script>
       // Track uploaded files + expand them into readable URLs for the email
       var uploadedFileInfo = [];
-      document.addEventListener('DOMContentLoaded', function () {
+      var uploadcareInitialised = false;
+      function initUploadcareWidgetIndex(){
+        if (uploadcareInitialised) return;
         var input = document.querySelector('[role="uploadcare-uploader"]');
         var display = document.getElementById('uploadedFiles');
         var form = document.getElementById('jmr-contact-form');
         if (!input || !window.uploadcare) return;
+        uploadcareInitialised = true;
         var widget = uploadcare.MultipleWidget(input);
 
         widget.onChange(function (fileList) {
@@ -1225,10 +1263,11 @@
         });
 
         // Inject a readable attachment summary into the form before Formspree submits
-        if (form) {
-          form.addEventListener('submit', function () {
+        var form2 = document.getElementById('jmr-contact-form');
+        if (form2) {
+          form2.addEventListener('submit', function () {
             // Remove any prior injected fields
-            form.querySelectorAll('input[data-attachment-line]').forEach(function(n){ n.remove(); });
+            form2.querySelectorAll('input[data-attachment-line]').forEach(function(n){ n.remove(); });
             if (uploadedFileInfo.length === 0) return;
             uploadedFileInfo.forEach(function (f, i) {
               var hidden = document.createElement('input');
@@ -1236,16 +1275,20 @@
               hidden.name = 'Attachment ' + (i + 1);
               hidden.value = f.name + ' — ' + f.url;
               hidden.setAttribute('data-attachment-line', 'true');
-              form.appendChild(hidden);
+              form2.appendChild(hidden);
             });
             var count = document.createElement('input');
             count.type = 'hidden';
             count.name = 'Attachment count';
             count.value = uploadedFileInfo.length + ' file(s) attached';
             count.setAttribute('data-attachment-line', 'true');
-            form.appendChild(count);
+            form2.appendChild(count);
           }, true);
         }
+      }
+      document.addEventListener('uploadcare:ready', initUploadcareWidgetIndex);
+      document.addEventListener('DOMContentLoaded', function(){
+        if (window.uploadcare) initUploadcareWidgetIndex();
       });
     </script>
 
